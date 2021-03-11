@@ -26,10 +26,6 @@ Greenhouse Study. Remote Sensing, 12(22), 3809.](https://www.mdpi.com/2072-4292/
 - [Hassanzadeh, A., van Aardt, J., Murphy, S. P., & Pethybridge, S. J. (2020). Yield modeling of
 snap bean based on hyperspectral sensing: a greenhouse study. Journal of Applied Remote
 Sensing, 14(2), 024519.](https://www.spiedigitallibrary.org/journals/journal-of-applied-remote-sensing/volume-14/issue-2/024519/Yield-modeling-of-snap-bean-based-on-hyperspectral-sensing/10.1117/1.JRS.14.024519.full?SSO=1)
----
-
-## Blog Posts
-
 
 ---
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yxoos)
