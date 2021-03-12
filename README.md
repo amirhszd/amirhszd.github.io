@@ -1,5 +1,5 @@
 # Amir Hassanzadeh
-![image](https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre)
+![image](https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre =400x)
 [![GitHub Badge](https://img.shields.io/badge/Github-Profile-orange)](https://github.com/yxoos)
 [![Google Scholar Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en)
 [![RIT Badge](https://img.shields.io/badge/RIT-Student-orange)](https://www.rit.edu/dirs/students/amir-hassanzadeh)
