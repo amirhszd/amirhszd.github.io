@@ -3,7 +3,15 @@
 
 <p align="center">
     <img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="300">
+    <br>
     <a href="https://github.com/yxoos"><img src="https://img.shields.io/badge/Github-Profile-orange" alt="GitHub Badge"></a>
+    <a href="https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google-Scholar-lightgrey" alt="Google Scholar Badge"></a>
+    <a href="https://www.rit.edu/dirs/students/amir-hassanzadeh"><img src="https://img.shields.io/badge/RIT-Student-orange" alt="RIT Badge"></a>
+    <a href="https://www.linkedin.com/in/amirhassanzadeh"><img src="https://img.shields.io/badge/My-LinkedIn-blue" alt="LinkedIn Badge"></a>
+    <a href="https://drive.google.com/file/d/1tmsLO3fvTLhLF_-hBUWnipuSTfVpn8su/view?usp=sharing"><img src="https://img.shields.io/badge/My-CV-critical" alt="CV Badge"></a>
+    <a href="https://www.buymeacoffee.com/yxoos"><img src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg" alt="Donate Badge"></a>
+    
+    
     [![GitHub Badge](https://img.shields.io/badge/Github-Profile-orange)](https://github.com/yxoos)
     [![Google Scholar Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en)
     [![RIT Badge](https://img.shields.io/badge/RIT-Student-orange)](https://www.rit.edu/dirs/students/amir-hassanzadeh)
