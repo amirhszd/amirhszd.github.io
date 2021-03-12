@@ -1,6 +1,6 @@
 <center># Amir Hassanzadeh
-<p align="center">
-  <img src="https://drive.google.com/file/d/10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre/preview" />
+<p align="left">
+  <img src="![image](https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre)" />
 </p>
 
 [![GitHub Badge](https://img.shields.io/badge/Github-Profile-orange)](https://github.com/yxoos)
