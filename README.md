@@ -2,7 +2,7 @@
 
 
 <p align="center">
-    <img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="300">
+    <img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="450">
     <br>
     <a href="https://github.com/yxoos"><img src="https://img.shields.io/badge/Github-Profile-orange" alt="GitHub Badge"></a>
     <a href="https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google-Scholar-lightgrey" alt="Google Scholar Badge"></a>
