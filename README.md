@@ -1,4 +1,4 @@
-<center># Amir Hassanzadeh </center>
+# Amir Hassanzadeh
 
 <p align="center">
     <img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="450">
