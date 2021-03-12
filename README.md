@@ -1,14 +1,17 @@
 # Amir Hassanzadeh
-::: {.center data-latex=""}
-<img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="300">
 
-[![GitHub Badge](https://img.shields.io/badge/Github-Profile-orange)](https://github.com/yxoos)
-[![Google Scholar Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en)
-[![RIT Badge](https://img.shields.io/badge/RIT-Student-orange)](https://www.rit.edu/dirs/students/amir-hassanzadeh)
-[![LinkedIn Badge](https://img.shields.io/badge/My-LinkedIn-blue)](https://www.linkedin.com/in/amirhassanzadeh/)
-[![CV Badge](https://img.shields.io/badge/My-CV-critical)](https://drive.google.com/file/d/1tmsLO3fvTLhLF_-hBUWnipuSTfVpn8su/view?usp=sharing)
-[![Donate Badge](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://www.buymeacoffee.com/yxoos)
-:::
+
+<p align="center">
+    <img src="https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre" width="300">
+    <a href="https://github.com/yxoos"><img src="https://img.shields.io/badge/Github-Profile-orange" alt="GitHub Badge"></a>
+    [![GitHub Badge](https://img.shields.io/badge/Github-Profile-orange)](https://github.com/yxoos)
+    [![Google Scholar Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en)
+    [![RIT Badge](https://img.shields.io/badge/RIT-Student-orange)](https://www.rit.edu/dirs/students/amir-hassanzadeh)
+    [![LinkedIn Badge](https://img.shields.io/badge/My-LinkedIn-blue)](https://www.linkedin.com/in/amirhassanzadeh/)
+    [![CV Badge](https://img.shields.io/badge/My-CV-critical)](https://drive.google.com/file/d/1tmsLO3fvTLhLF_-hBUWnipuSTfVpn8su/view?usp=sharing)
+    [![Donate Badge](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://www.buymeacoffee.com/yxoos)
+</p>
+
 
 I am a PhD (ABD) Imaging Scientist program at Center for [Imaging Science](https://www.rit.edu/science/chester-f-carlson-center-imaging-science), [RIT](https://www.rit.edu/). I have passion for Deep Learning and Drones and tying them together. My Research involved using Drones for agriculture and improving yield prediction of crops using Hyperspectral sesning, via machine learning and statistical models.  
 
