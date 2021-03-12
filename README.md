@@ -1,5 +1,5 @@
-<center># Amir Hassanzadeh
-<p align="left">
+# Amir Hassanzadeh
+<p align="center">
   <img src="![image](https://drive.google.com/uc?export=view&id=10cBCaUyzqfoU1Udh3X_tnrXIPli_5wre)" />
 </p>
 
