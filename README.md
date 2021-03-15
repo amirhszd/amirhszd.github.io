@@ -12,7 +12,7 @@
 </p>
 
 
-I am a PhD (ABD) Imaging Scientist program at Center for [Imaging Science](https://www.rit.edu/science/chester-f-carlson-center-imaging-science), [RIT](https://www.rit.edu/). I have passion for Deep Learning and Drones and tying them together. My Research involved using Drones for agriculture and improving yield prediction of crops using Hyperspectral sesning, via machine learning and statistical models.  
+I am a PhD (ABD) Imaging Scientist at Center for [Imaging Science](https://www.rit.edu/science/chester-f-carlson-center-imaging-science), [RIT](https://www.rit.edu/). I have passion for Deep Learning and Drones and tying them together. My Research involves using remote sensing for agricultural practices, via machine learning and statistical models.  
 
 
 ## About Me
