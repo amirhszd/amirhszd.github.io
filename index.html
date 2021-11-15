@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Amir Hassanzadeh</title>
+    <description>Amir Hassanzadeh Personal Website</description>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="amir, hassanzadeh, amirhossein, rit, rochester institute of technology, new york, computer vision, deep-learning, machine-learning, machine learning, deep learning, artificial intelligence, AI, segmentation, image, remote sensing, crop, precision agriculture, RIT, Rochester, rochester">
+    <meta name="author" content="Amir Hassanzadeh">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .newflag {
+            background-color: #C0B283;
+            color: #ffffff;
+            padding: 2px 5px;
+            border-radius: 5px;
+            border: 2px solid #C0B283;
+            font: 600 16px Montserrat, sans-serif;
+            font-family: Montserrat, sans-serif;
+        }
+    </style>
+
+    <style>
+        body {
+            font: 400 15px Montserrat, sans-serif;
+            font-family: Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+        
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: Montserrat, sans-serif;
+            letter-spacing: 4px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        h5 {
+            font-size: 16px;
+            line-height: 1.375em;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        
+        h6 {
+            font-size: 15px;
+            line-height: 1.375em;
+            font-weight: 400;
+            margin-bottom: 14px;
+            text-align: right;
+        }
+        
+        .jumbotron {
+            background-image: url("images/beach.jpg");
+            background-size: 142% auto;
+            background-align: center;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+        
+        .container-fluid {
+            padding: 60px 50px;
+        }
+        
+        .section-navbar {
+            color: #C0B283;
+            background-color: #FFFFFF;
+        }
+        
+        .section-default {
+            color: #373737;
+            background-color: #F4F4F4;
+        }
+        
+        .section-about-me,
+        .section-about-me h4,
+        .section-about-me a {
+            color: #373737;
+            background-color: #F4F4F4;
+            text-align: justify;
+			font-size: 20px;
+            line-height: 1.8em;
+			
+        }
+        
+        .section-recent-news {
+            color: #373737;
+            background-color: #ede6de;
+        }
+        
+        .section-research {
+            color: #373737;
+            background-color: #F4F4F4;
+            text-align: justify;
+        }
+        
+        .section-research h3 {
+            text-align: center;
+        }
+        
+        .section-research h4 {
+            text-align: center;
+        }
+        
+        .section-publications,
+        .section-publications a {
+            color: #373737;
+            background-color: #ede6de;
+            text-align: justify;
+        }
+        
+        .logo {
+            color: #f4511e;
+            font-size: 200px;
+        }
+        
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .thumbnail2 {
+            width: 60px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .carousel-control.right,
+        .carousel-control.left {
+            background-image: none;
+            color: #f4511e;
+        }
+        
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+        
+        .carousel-indicators li.active {
+            background-color: #f4511e;
+        }
+        
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+        
+        .item span {
+            font-style: normal;
+        }
+        
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+        
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+        
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #fff !important;
+            color: #f4511e;
+        }
+        
+        .panel-heading {
+            color: #fff !important;
+            background-color: #f4511e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        
+        .panel-footer {
+            background-color: white !important;
+        }
+        
+        .panel-footer h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .panel-footer h4 {
+            font-size: 14px;
+        }
+        
+        .panel-footer .btn {
+            margin: 15px 0;
+        }
+        
+        .navbar {
+            margin-bottom: 0;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+        
+        .navbar li a,
+        .navbar .navbar-brand {
+            font-family: Montserrat, sans-serif;
+        }
+        
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            background-color: #C0B283 !important;
+            color: #FFFFFF !important;
+            transition: 0.3s;
+        }
+        
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+        
+        footer {
+            background-color: #ffffff;
+        }
+        
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #C0B283;
+        }
+		
+		.glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #373737;
+        }
+        
+        .slideanim {
+            visibility: hidden;
+        }
+        
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+        
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+        
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+        
+        .external-link-icon {
+            float: left;
+            margin: 0pt 5pt;
+            width: 50pt;
+            height: 50pt;
+            opacity: 1;
+        }
+        
+        .external-link-icon img {
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .external-link-icon img:hover {
+            background-color: #C0B283;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .external-link-container {
+            text-align: center;
+            width: 100%;
+            height: 60pt;
+        }
+        
+        .external-link-center-wrapper {
+            margin: 20px auto auto;
+            width: 300pt;
+            height: 60pt;
+        }
+        
+        .button {
+            background-color: #373737;
+            border: none;
+            color: white;
+            padding: 8px 32px;
+            text-align: center;
+            font-size: 18px;
+            margin: 4px 2px;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .button:hover {
+            background-color: #C0B283;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" class="section-default">
+
+    <nav class="navbar navbar-default navbar-fixed-top section-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Tyler L. Hayes</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#recent">NEWS</a></li>
+                    <li><a href="#research">RESEARCH</a></li>
+                    <li><a href="#publications">PUBLICATIONS</a></li>
+                    <li data-toggle="collapse" data-target=".navbar-collapse.in"><a href="data/Tyler_Hayes_CV.pdf" onclick="getOutboundLink('data/Tyler_Hayes_CV.pdf'); return false;" target="_blank">CV</a></li>
+                    </h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Amir Hassanzadeh<br>
+  	<div class = "external-link-container">
+	  <div class="external-link-center-wrapper">
+	    <div class = "external-link-icon">
+	    	<a href="https://www.linkedin.com/in/amirhassanzadeh/" onclick="getOutboundLink('https://www.linkedin.com/in/amirhassanzadeh/'); return false;" target="_blank">
+            	<span><img border="0" alt="Amir Hassanzadeh Linkedin" src="images/linkedin-logo.png"></img></span>
+            </a>
+	    </div>
+	    <div class = "external-link-icon">
+	    	<a href="https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en#" onclick="getOutboundLink('https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en#'); return false;" target="_blank">
+            	<span><img border="0" alt="Amir Hassanzadeh Google Scholar" src="images/gs-logo.png"></img></span>
+            </a>
+	    </div>
+		<div class = "external-link-icon">
+	    	<a href="https://github.com/amirhszd" onclick="getOutboundLink('https://github.com/amirhszd'); return false;" target="_blank">
+				<span><img border="0" alt="Amir Hassanzadeh GitHub" src="images/github-logo.png"></img></span>
+            </a>
+	    </div>
+	    <div class = "external-link-icon">
+	    	<a href="" rel="nofollow" onclick="this.href='mailto:' + 'ah7557' + '@' + 'rit.edu'" target="_blank">
+            	<span><img border="0" alt="Amir Hassanzadeh Contact" src="images/mail-logo.png"></img></span>
+            </a>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+  </form>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid section-about-me">
+  <div class="row">
+    <h2>About Me</h2>
+    <div class="col-sm-2 col-sm-offset-3">
+      <span><img src="images/amir.jpg" alt="Amir Hassanzadeh " class="img-responsive" style="border-radius: 25px"></span>
+	</div>
+    <div class="col-sm-4">
+      <h4> Welcome to my personal webpage! I am a PhD candidate in the Imaging Science program at Rochester Institute of Technology. I have a passion for Deep Learning and Drones and tying them together to solve complex problems. I also love agriculture. Previosuly, I earned a BS in Chemical Engineering from University of Guilan, where I worked on numerical simulation of oil extraction from plants.        
+	  </h4>
+    </div>
+  </div>
+</div>
+
+<!-- Container (News) -->
+<div id="recent" class="container-fluid section-recent-news">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>News</h2>
+	  
+		<!-- Recent News -->
+		<!-- <h4><strong>Sep 2020:</strong> <span class="newflag">NEW!</span> Our paper <a href="https://doi.org/10.1371/journal.pone.0238302" onclick="getOutboundLink('https://doi.org/10.1371/journal.pone.0238302'); return false;">"Are Open Set Classification Methods Effective on Large-Scale Datasets?"</a> was published in PLoS ONE!</h4>-->
+        <h4><strong>Nov 2021:</strong> <span class="newflag">NEW!</span> 
+            Our paper "Toward Crop Maturity Assessment via UAS-based Imaging Spectroscopy - A Snap Bean Pod Size Classification Field Study" was accepted at the <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=36" onclick="getOutboundLink('https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=36'); return false;">TGRS</a> journal and is undergoing review! (IF: 5.6)</h4>
+		<h4><strong>Oct 2021:</strong> We are presenting <a href="https://github.com/amirhszd/jostar/" onclick="getOutboundLink('https://github.com/amirhszd/jostar/'); return false;">Jostar</a> and our recents results from the UAV studies at <a href="https://www.agu.org/Fall-Meeting" onclick="getOutboundLink('https://www.agu.org/Fall-Meeting'); return false;">AGU 2021</a> in NOLA. We are excited for this opportunity at one of the largest conferences in US.</a>!</h4>
+		<h4><strong>Oct 2021:</strong> Our paper <a href="https://www.mdpi.com/2072-4292/13/19/3975" onclick="getOutboundLink('https://www.mdpi.com/2072-4292/13/19/3975'); return false;">"Comparison of UAS-Based Structure-from-Motion and LiDAR for Structural Characterization of Short Broadacre Crops"</a> was accepted for publication in the journal of Remote Sensing! (IF: 4.8)</h4>
+        <h4><strong>Aug 2021:</strong> Our paper <a href="https://www.mdpi.com/2072-4292/13/16/3241" onclick="getOutboundLink('https://www.mdpi.com/2072-4292/13/16/3241'); return false;">"Broadacre Crop Yield Estimation Using Imaging Spectroscopy from Unmanned Aerial Systems (UAS): A Field-Based Case Study with Snap Bean"</a> was accepted for publication in the journal of Remote Sensing! (IF: 4.8) </h4>
+        <h4><strong>Jul 2021:</strong> Started working as a Machine Learning Intern at <a href="https://www.agerpoint.com/" onclick="getOutboundLink('https://www.agerpoint.com/'); return false;"> AGERpoint</a>!</h4>
+        <h4><strong>Jul 2021:</strong> We released <a href="https://github.com/amirhszd/jostar/" onclick="getOutboundLink('https://github.com/amirhszd/jostar/'); return false;">"Jostar: Feature selection library for data sciences in Python"</a> and presented the library at <a href="https://www.scipy2021.scipy.org/" onclick="getOutboundLink('https://www.scipy2021.scipy.org/'); return false;">SciPy 2021</a> !</h4>
+        <h4><strong>Aug 2020:</strong> Became a PhD candidate by successfully defending my dissertation proporal!</h4>
+				
+    </div>
+	
+	<!-- Collapsed News -->
+	<a class="col-sm-8 col-sm-offset-2 text-center" data-toggle="collapse" data-target="#collapseNews" role="button" aria-expanded="false" aria-controls="collapseNews" ><span class="glyphicon glyphicon-chevron-down"></span></a>
+	<div class="col-sm-8 col-sm-offset-2 collapse" id="collapseNews">
+        <h4><strong>Jun 2020:</strong> Our paper <a href="https://www.mdpi.com/2072-4292/12/22/3809" onclick="getOutboundLink('https://www.mdpi.com/2072-4292/12/22/3809'); return false;">"Growth Stage Classification and Harvest Scheduling of Snap Bean Using Hyperspectral Sensing: A Greenhouse Study"</a> was accepted to the Journal of Remote Sensing (IF: 4.8)!</h4>
+        <h4><strong>Jun 2020:</strong> Started working at  <a href="https://www.precisionhawk.com/" onclick="getOutboundLink('https://www.precisionhawk.com/'); return false;">PrecisionHawk</a> data services team as a remote sensing intern!</h4>
+        <h4><strong>Jun 2020:</strong> Our paper <a href="https://www.spiedigitallibrary.org/journals/journal-of-applied-remote-sensing/volume-14/issue-2/024519/Yield-modeling-of-snap-bean-based-on-hyperspectral-sensing/10.1117/1.JRS.14.024519.full?SSO=1" onclick="getOutboundLink('https://www.spiedigitallibrary.org/journals/journal-of-applied-remote-sensing/volume-14/issue-2/024519/Yield-modeling-of-snap-bean-based-on-hyperspectral-sensing/10.1117/1.JRS.14.024519.full?SSO=1'); return false;">"Yield modeling of snap bean based on hyperspectral sensing: a greenhouse study"</a> was published in the journal of remote sensing!</h4>
+        <h4><strong>Nov 2019:</strong> We presented priliminary reseach results for the greenhouse experiment at AGU 2019 <a href="https://ui.adsabs.harvard.edu/abs/2019AGUFM.B31K2416H/abstract" onclick="getOutboundLink('https://ui.adsabs.harvard.edu/abs/2019AGUFM.B31K2416H/abstract'); return false;">AGU</a>!</h4>
+        <h4><strong>Dec 2018:</strong> Initiated a greenhouse experiment to assess spectral response of bean plants in a best-case scenario.</h4>		   
+        <h4><strong>Jul 2018:</strong> Started working under the supervision of Dr. Jan van Aardt on a NSF funded project on spectral assessment of crops using unmanned aerial vehicles.</h4>		   
+        <h4><strong>Jul 2018:</strong> Started working under the supervision of Dr. Jan van Aardt on a NSF funded project on spectral assessment of crops using unmanned aerial vehicles.</h4>		   
+		<h4><strong>Jul 2018:</strong> Successfuly passed my PhD Qualification exam (top third).</h4>		   
+    </div>
+  </div>
+</div>
+
+<!-- Container (Research Section) -->
+<div id="research" class="container-fluid section-research">
+	<div class="row">
+		<h2>Research</h2>
+	</div>    
+
+	<!-- Lidar vs. SFM 2021 -->
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<h3><strong>Remote Sensing</strong>: Comparison of UAS-Based Structure-from-Motion and LiDAR for Structural Characterization of Short Broadacre Crops</h3>
+			<h4>Fei Zhang,<strong>Amirhossein Hassanzadeh</strong>, Julie Kikkert, Sarah Jane Pethybridge, Jan van Aardt</h4>
+			<h3>
+				<a href="https://doi.org/10.3390/rs13193975" onclick="getOutboundLink('https://doi.org/10.3390/rs13193975'); return false;" target="_blank"><button class="button">Paper</button></a>
+			</h3>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-sm-2 col-sm-offset-2">
+			<img src="images/crop_maturity_lidar.jpg" alt="RS 2021" class="img-responsive"></img>
+		</div>
+		<div class="col-sm-6">
+			<h5 class="h5-small"><p>The use of small unmanned aerial system (UAS)-based structure-from-motion (SfM; photogrammetry) and LiDAR point clouds has been widely discussed in the remote sensing community. Here, we compared multiple aspects of the SfM and the LiDAR point clouds, collected concurrently in five UAS flights experimental fields of a short crop (snap bean), in order to explore how well the SfM approach performs compared with LiDAR for crop phenotyping. The main methods include calculating the cloud-to-mesh distance (C2M) maps between the preprocessed point clouds, as well as computing a multiscale model-to-model cloud comparison (M3C2) distance maps between the derived digital elevation models (DEMs) and crop height models (CHMs). We also evaluated the crop height and the row width from the CHMs and compared them with field measurements for one of the data sets. Both SfM and LiDAR point clouds achieved an average RMSE of ~0.02 m for crop height and an average RMSE of ~0.05 m for row width. The qualitative and quantitative analyses provided proof that the SfM approach is comparable to LiDAR under the same UAS flight settings. However, its altimetric accuracy largely relied on the number and distribution of the ground control points.</p></h5>
+		</div>
+    </div>
+    
+    
+	<!-- UAV Yield 2021 -->
+	<div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3><strong>Remote Sensing</strong>: Broadacre Crop Yield Estimation Using Imaging Spectroscopy from Unmanned Aerial Systems (UAS): A Field-Based Case Study with Snap Bean</h3>
+                <h4><strong>Amirhossein Hassanzadeh</strong>, Fei Zhang, Jan van Aardt, Sean P Murphy, Sarah J Pethybridge</h4>
+                <h3>
+                    <a href="https://doi.org/10.3390/rs13163241" onclick="getOutboundLink('https://doi.org/10.3390/rs13163241'); return false;" target="_blank"><button class="button">Paper</button></a>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2">
+                <img src="images/UAVyield.jpg" alt="RS 2021" class="img-responsive"></img>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="h5-small"><p>Accurate, precise, and timely estimation of crop yield is key to a grower’s ability to proactively manage crop growth and predict harvest logistics. Such yield predictions typically are based on multi-parametric models and in-situ sampling. Here we investigate the extension of a greenhouse study, to low-altitude unmanned aerial systems (UAS). Our principal objective was to investigate snap bean crop (Phaseolus vulgaris) yield using imaging spectroscopy (hyperspectral imaging) in the visible to near-infrared (VNIR; 400–1000 nm) region via UAS. We aimed to solve the problem of crop yield modelling by identifying spectral features explaining yield and evaluating the best time period for accurate yield prediction, early in time. We introduced a Python library, named Jostar, for spectral feature selection. Embedded in Jostar, we proposed a new ranking method for selected features that reaches an agreement between multiple optimization models. Moreover, we implemented a well-known denoising algorithm for the spectral data used in this study. This study benefited from two years of remotely sensed data, captured at multiple instances over the summers of 2019 and 2020, with 24 plots and 18 plots, respectively. Two harvest stage models, early and late harvest, were assessed at two different locations in upstate New York, USA. Six varieties of snap bean were quantified using two components of yield, pod weight and seed length. We used two different vegetation detection algorithms. the Red-Edge Normalized Difference Vegetation Index (RENDVI) and Spectral Angle Mapper (SAM), to subset the fields into vegetation vs. non-vegetation pixels. Partial least squares regression (PLSR) was used as the regression model. Among nine different optimization models embedded in Jostar, we selected the Genetic Algorithm (GA), Ant Colony Optimization (ACO), Simulated Annealing (SA), and Particle Swarm Optimization (PSO) and their resulting joint ranking. The findings show that pod weight can be explained with a high coefficient of determination (R2 = 0.78–0.93) and low root-mean-square error (RMSE = 940–1369 kg/ha) for two years of data. Seed length yield assessment resulted in higher accuracies (R2 = 0.83–0.98) and lower errors (RMSE = 4.245–6.018 mm). Among optimization models used, ACO and SA outperformed others and the SAM vegetation detection approach showed improved results when compared to the RENDVI approach when dense canopies were being examined. Wavelengths at 450, 500, 520, 650, 700, and 760 nm, were identified in almost all data sets and harvest stage models used. The period between 44–55 days after planting (DAP) the optimal time period for yield assessment. Future work should involve transferring the learned concepts to a multispectral system, for eventual operational use; further attention should also be paid to seed length as a ground truth data collection technique, since this yield indicator is far more rapid and straightforward.</p></h5>
+            </div>
+        </div>
+
+	<!-- GH Growth 2021 -->
+	<div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3><strong>Remote Sensing</strong>: Growth Stage Classification and Harvest Scheduling of Snap Bean Using Hyperspectral Sensing: A Greenhouse Study</h3>
+                <h4><strong>Amirhossein Hassanzadeh</strong>, Sean P Murphy, Sarah J Pethybridge, Jan van Aardt</h4>
+                <h3>
+                    <a href="https://doi.org/10.3390/rs12223809" onclick="getOutboundLink('https://doi.org/10.3390/rs12223809'); return false;" target="_blank"><button class="button">Paper</button></a>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2">
+                <img src="images/GHgrowth.jpg" alt="RS 2021" class="img-responsive"></img>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="h5-small"><p>The agricultural industry suffers from a significant amount of food waste, some of which originates from an inability to apply site-specific management at the farm-level. Snap bean, a broad-acre crop that covers hundreds of thousands of acres across the USA, is not exempt from this need for informed, within-field, and spatially-explicit management approaches. This study aimed to assess the utility of machine learning algorithms for growth stage and pod maturity classification of snap bean (cv. Huntington), as well as detecting and discriminating spectral and biophysical features that lead to accurate classification results. Four major growth stages and six main sieve size pod maturity levels were evaluated for growth stage and pod maturity classification, respectively. A point-based in situ spectroradiometer in the visible-near-infrared and shortwave-infrared domains (VNIR-SWIR; 400–2500 nm) was used and the radiance values were converted to reflectance to normalize for any illumination change between samples. After preprocessing the raw data, we approached pod maturity assessment with multi-class classification and growth stage determination with binary and multi-class classification methods. Results from the growth stage assessment via the binary method exhibited accuracies ranging from 90–98%, with the best mathematical enhancement method being the continuum-removal approach. The growth stage multi-class classification method used raw reflectance data and identified a pair of wavelengths, 493 nm and 640 nm, in two basic transforms (ratio and normalized difference), yielding high accuracies (~79%). Pod maturity assessment detected narrow-band wavelengths in the VIS and SWIR region, separating between not ready-to-harvest and ready-to-harvest scenarios with classification measures at the ~78% level by using continuum-removed spectra. Our work is a best-case scenario, i.e., we consider it a stepping-stone to understanding snap bean harvest maturity assessment via hyperspectral sensing at a scalable level (i.e., airborne systems). Future work involves transferring the concepts to unmanned aerial system (UAS) field experiments and validating whether or not a simple multispectral camera, mounted on a UAS, could incorporate < 10 spectral bands to meet the need of both growth stage and pod maturity classification in snap bean production.</p></h5>
+            </div>
+        </div>
+
+	<!-- GH Yield 2021 -->
+	<div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3><strong>Journal of Applied Remote Sensing</strong>: Yield modeling of snap bean based on hyperspectral sensing: a greenhouse study</h3>
+                <h4><strong>Amirhossein Hassanzadeh</strong>, Jan van Aardt, Sean Patrick Murphy, Sarah Jane Pethybridge</h4>
+                <h3>
+                    <a href="https://doi.org/10.1117/1.JRS.14.024519" onclick="getOutboundLink('https://doi.org/10.1117/1.JRS.14.024519'); return false;" target="_blank"><button class="button">Paper</button></a>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2">
+                <img src="images/GHyield.jpg" alt="RS 2021" class="img-responsive"></img>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="h5-small"><p>Farmers and growers typically use approaches based on the crop environment and local meteorology, many of which are labor-intensive, to predict crop yield. These approaches have found broad acceptance but lack real-time and physiological feedback for near-daily management purposes. This is true for broad-acre crops, such as snap bean, which is valued at hundreds of millions of dollars in the annual agricultural market. We aim to investigate the relationships between snap bean yield and plant spectral and biophysical information, collected using a hyperspectral spectroradiometer (400 to 2500 nm). The experiment focused on 48 single snap bean plants (cv. Huntington) in a controlled greenhouse environment during the growth period (69 days). We used applicable accuracy and precision metrics from partial least squares regression and cross-validation methods to evaluate the predictive ability of two harvest stages, namely an early-harvest and late-harvest stage, against our yield indicator (bean pod weight). Four different spectral data sets were used to investigate whether such oversampled, hyperspectral data sets could accurately and precisely model observed variability in yield, in terms of the coefficient of determination (R2) and root-mean-square error (RMSE). The objective of our approach hinges on the philosophy that selected spectral bands from this study, i.e., those that best explain yield variability, can be downsampled from a hyperspectral system for use in a more cost-effective, operational multispectral sensor. Our results suggested the optimal period for spectral evaluation of snap bean yield is 20 to 25 or 32 days prior to harvest for the early- and late-harvest stages, respectively, with the best model performing at a low RMSE (3.02  g plant  −  1) and a high coefficient of determination (R2  =  0.72). An unmanned aerial systems-mounted, affordable, and wavelength-programmable multispectral imager, with bands corresponding to those identified, could provide a near real-time and reliable yield estimate prior to harvest.</p></h5>
+            </div>
+        </div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
