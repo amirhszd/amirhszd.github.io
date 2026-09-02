@@ -60,7 +60,7 @@
     "category": "Physics-based simulation",
     "dates": "Jan 2024 – Present",
     "summary": "Automated scene construction for Landsat-scale simulations and sensor trade studies.",
-    "image": "colorado.webp",
+    "image": "scene-constructor-logo.png",
     "overview": "Scene Constructor is an automated framework I developed to build large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. It integrates satellite surface reflectance imagery, terrain elevation, surface emissivity, atmospheric conditions, and solar and sensor geometry to generate simulated imagery across reflective and thermal wavelengths. The framework uses DGGRID for hexagonal tiling, organizing the landscape into reusable, geographically referenced scenes that can be assembled into continuous regions spanning a Landsat-sized footprint. By automating data acquisition, preprocessing, and scene construction, it enables researchers to evaluate proposed sensor designs, explore different observation conditions, and conduct sensor trade studies before launch.",
     "role": [
       "Pipeline design and implementation",
@@ -75,6 +75,34 @@
     ],
     "links": [],
     "figures": [
+      {
+        "src": "scene-constructor-logo.png",
+        "title": "Scene Constructor",
+        "caption": "Large-scale scene construction for physics-based remote-sensing simulation.",
+        "original": "scene-constructor-logo.png",
+        "kind": "image"
+      },
+      {
+        "src": "landsat-comparison.webp",
+        "title": "Landsat RGB, Pseudo-RGB, and Thermal simulation",
+        "caption": "Left to right: Landsat RGB, Landsat Pseudo-RGB, and Thermal simulation over the same landscape.",
+        "original": "landsat-comparison.webp",
+        "kind": "image"
+      },
+      {
+        "src": "terrain-view.webp",
+        "title": "Terrain and surface detail",
+        "caption": "An oblique view of the constructed landscape, showing mountainous terrain and agricultural land.",
+        "original": "terrain-view.webp",
+        "kind": "image"
+      },
+      {
+        "src": "time-of-day.gif",
+        "title": "Changing illumination through the day",
+        "caption": "Simulation sequence with time of day varying from 6 AM to 6 PM, showing changes in illumination and terrain shadows.",
+        "original": "time-of-day.gif",
+        "kind": "animation"
+      },
       {
         "src": "colorado.webp",
         "title": "From landscape to local detail",
