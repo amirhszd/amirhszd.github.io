@@ -1,14 +1,14 @@
 [
   {
     "slug": "sst",
-    "title": "Hyperspectral Foundation Model",
-    "full_title": "Spatio-Spectral-Temporal Foundation Model",
-    "category": "Foundation models",
+    "title": "Temporal Hyperspectral Representation Learning using Masked Auto Encoders",
+    "full_title": "Temporal Hyperspectral Representation Learning using Masked Auto Encoders",
+    "category": "Self-supervised learning",
     "dates": "March 2026 – Present",
     "status": "Ongoing research",
     "summary": "Learning spectral, spatial, and temporal representations to study vegetation stress and environmental change.",
     "image": "architecture.webp",
-    "overview": "The Spatio-Spectral-Temporal (SST) Foundation Model is a self-supervised framework for learning generalizable representations from multi-temporal hyperspectral satellite imagery. The architecture factorizes attention across the spectral, spatial, and temporal dimensions and uses masked reconstruction to learn from large volumes of unlabeled imagery. Acquisition metadata—including terrain, illumination, viewing geometry, sensor characteristics, geographic location, and acquisition time—is explicitly incorporated to separate observational effects from intrinsic surface properties. The objective is to learn a latent representation that primarily captures the spectral state of materials, enabling their evolution to be tracked through time and ultimately supporting applications such as vegetation stress detection and environmental change characterization.",
+    "overview": "This project uses masked autoencoders to learn generalizable spectral, spatial, and temporal representations from multi-temporal hyperspectral satellite imagery. The architecture factorizes attention across the spectral, spatial, and temporal dimensions and uses masked reconstruction to learn from large volumes of unlabeled imagery. Acquisition metadata—including terrain, illumination, viewing geometry, sensor characteristics, geographic location, and acquisition time—is explicitly incorporated to separate observational effects from intrinsic surface properties. The objective is to learn a latent representation that primarily captures the spectral state of materials, enabling their evolution to be tracked through time and ultimately supporting applications such as vegetation stress detection and environmental change characterization.",
     "role": [
       "Architecture design",
       "Data processing",
@@ -31,10 +31,10 @@
         "kind": "image"
       },
       {
-        "src": "masking.mp4",
+        "src": "masking-v2.mp4",
         "title": "Learning from missing observations",
         "caption": "Masking demonstration for self-supervised hyperspectral pretraining.",
-        "original": "masking.mp4",
+        "original": "masking-v2.mp4",
         "kind": "video"
       },
       {
