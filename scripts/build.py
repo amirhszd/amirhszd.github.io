@@ -10,7 +10,7 @@ EARLIER = json.loads((ROOT / 'content/earlier-research.json').read_text())
 E = html.escape
 SCHOLAR = 'https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en'
 EMAIL = 'amirxhassanzadeh@gmail.com'
-SITE = 'https://amirhszd.github.io'
+SITE = 'https://amirhassanzadeh.com'
 
 def anchor(url, label, css=''):
     external = ' target="_blank" rel="noopener noreferrer"' if url.startswith('https://') else ''
@@ -85,7 +85,7 @@ home_body = f'''
 <div class="section-heading"><div><p class="eyebrow">Papers & collaboration</p><h2>Publications</h2></div>{anchor(SCHOLAR,'Google Scholar ↗','text-link')}</div>
 <ol class="pub-list">{publications()}</ol></div></section>
 <section id="about" class="section"><div class="wrap about-grid">
-<div><p class="eyebrow">About</p><h2 style="margin-top:.8rem">Research meets<br>implementation.</h2><img class="portrait" src="assets/site/portrait.webp" alt="Amir Hassanzadeh" width="180" height="180" loading="lazy"><a class="text-link" href="assets/docs/Amir-Hassanzadeh-Resume.pdf">Download résumé ↗</a></div>
+<div><p class="eyebrow">About</p><h2 style="margin-top:.8rem">Research meets<br>implementation.</h2><img class="portrait" src="assets/site/headshot.jpeg" alt="Amir Hassanzadeh" width="180" height="180" loading="lazy"><a class="text-link" href="assets/docs/Amir-Hassanzadeh-Resume.pdf">Download résumé ↗</a></div>
 <div class="about-copy"><p>I am a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. I develop methods and software for extracting meaningful information from satellite, drone, hyperspectral, thermal, and LiDAR observations.</p>
 <p>My work spans self-supervised geospatial foundation models, Landsat surface-temperature retrieval and uncertainty, large-scale DIRSIG scene construction, and agricultural monitoring. I earned my Ph.D. in Imaging Science from RIT in 2022, where my research connected greenhouse spectroscopy with drone-based crop yield and harvest-maturity assessment.</p>
 <p>I also teach <em>Applications of Machine Learning in Remote Sensing</em> and advise graduate and undergraduate researchers. Earlier industry experience at AgerPoint and PrecisionHawk informs my focus on practical, usable research software.</p>
