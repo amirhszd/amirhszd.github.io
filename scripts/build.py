@@ -72,7 +72,7 @@ home_body = f'''
 <section class="wrap hero" aria-labelledby="intro-title">
 <div><p class="eyebrow">Earth observation & applied AI</p><h1 id="intro-title">Amir<br>Hassanzadeh<span style="color:var(--accent)">.</span></h1>
 <p class="lead">Understanding our world through remote sensing, machine learning, and physical simulation.</p>
-<p class="affiliation">Research Associate Professor<br>Rochester Institute of Technology</p>
+<p class="affiliation">Research Assistant Professor<br>Rochester Institute of Technology</p>
 <div class="links"><a class="button primary" href="#research">Explore my work ↓</a>{anchor(SCHOLAR,'Google Scholar ↗','button')}</div></div>
 <figure class="hero-visual"><img src="assets/projects/lidar/harvard-forest.webp" width="1536" height="1024" alt="Aerial view of the simulated Harvard Forest landscape" fetchpriority="high"><figcaption><span>Harvard Forest · DIRSIG simulation</span><a href="projects/lidar.html">View project ↗</a></figcaption></figure>
 </section>
@@ -86,13 +86,13 @@ home_body = f'''
 <ol class="pub-list">{publications()}</ol></div></section>
 <section id="about" class="section"><div class="wrap about-grid">
 <div><p class="eyebrow">About</p><h2 style="margin-top:.8rem">Research meets<br>implementation.</h2><img class="portrait" src="assets/site/portrait.webp" alt="Amir Hassanzadeh" width="180" height="180" loading="lazy"><a class="text-link" href="assets/docs/Amir-Hassanzadeh-Resume.pdf">Download résumé ↗</a></div>
-<div class="about-copy"><p>I am a Research Associate Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. I develop methods and software for extracting meaningful information from satellite, drone, hyperspectral, thermal, and LiDAR observations.</p>
+<div class="about-copy"><p>I am a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. I develop methods and software for extracting meaningful information from satellite, drone, hyperspectral, thermal, and LiDAR observations.</p>
 <p>My work spans self-supervised geospatial foundation models, Landsat surface-temperature retrieval and uncertainty, large-scale DIRSIG scene construction, and agricultural monitoring. I earned my Ph.D. in Imaging Science from RIT in 2022, where my research connected greenhouse spectroscopy with drone-based crop yield and harvest-maturity assessment.</p>
 <p>I also teach <em>Applications of Machine Learning in Remote Sensing</em> and advise graduate and undergraduate researchers. Earlier industry experience at AgerPoint and PrecisionHawk informs my focus on practical, usable research software.</p>
-<ul class="background-list"><li><strong>Research Associate Professor · RIT</strong><span>April 2026 – Present</span></li><li><strong>Researcher / Engineer II · RIT</strong><span>June 2022 – April 2026</span></li><li><strong>Ph.D. in Imaging Science · RIT</strong><span>2022</span></li><li><strong>B.Sc. in Engineering · University of Guilan</strong><span>2016</span></li></ul>
+<ul class="background-list"><li><strong>Research Assistant Professor · RIT</strong><span>April 2026 – Present</span></li><li><strong>Researcher / Engineer II · RIT</strong><span>June 2022 – April 2026</span></li><li><strong>Ph.D. in Imaging Science · RIT</strong><span>2022</span></li><li><strong>B.Sc. in Engineering · University of Guilan</strong><span>2016</span></li></ul>
 </div></div></section>
 <section id="contact" class="contact"><div class="wrap contact-inner"><div><h2>Get in touch</h2><p>Research, collaboration, and opportunities.</p></div><div><a href="mailto:{EMAIL}">{EMAIL}</a><div class="links">{anchor('https://github.com/amirhszd','GitHub ↗','text-link')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn ↗','text-link')}{anchor(SCHOLAR,'Scholar ↗','text-link')}</div></div></div></section>'''
-(ROOT / 'index.html').write_text(shell('Amir Hassanzadeh | Remote Sensing & Machine Learning', 'Research Associate Professor at RIT. Remote sensing, foundation models, Landsat surface temperature, DIRSIG simulation, LiDAR, and open-source software.', home_body))
+(ROOT / 'index.html').write_text(shell('Amir Hassanzadeh | Remote Sensing & Machine Learning', 'Research Assistant Professor at RIT. Remote sensing, foundation models, Landsat surface temperature, DIRSIG simulation, LiDAR, and open-source software.', home_body))
 
 def figure(p, f, number):
     base = f"../assets/projects/{p['slug']}/"
