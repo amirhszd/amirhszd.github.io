@@ -123,13 +123,6 @@
         "caption": "An additional output view from the scene-construction workflow.",
         "original": "output.gif",
         "kind": "image"
-      },
-      {
-        "src": "digital-twin.webp",
-        "title": "A virtual counterpart for Earth observation",
-        "caption": "Satellite observations and physical simulation provide complementary views for sensor studies.",
-        "original": "digital-twin.png",
-        "kind": "image"
       }
     ]
   },
