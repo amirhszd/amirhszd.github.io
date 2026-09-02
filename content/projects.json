@@ -60,7 +60,7 @@
     "category": "Physics-based simulation",
     "dates": "Jan 2024 – Present",
     "summary": "Automated scene construction for Landsat-scale simulations and sensor trade studies.",
-    "image": "scene-constructor-logo.png",
+    "image": "scene-constructor-logo-v2.png",
     "overview": "Scene Constructor is an automated framework I developed to build large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. It integrates satellite surface reflectance imagery, terrain elevation, surface emissivity, atmospheric conditions, and solar and sensor geometry to generate simulated imagery across reflective and thermal wavelengths. The framework uses DGGRID for hexagonal tiling, organizing the landscape into reusable, geographically referenced scenes that can be assembled into continuous regions spanning a Landsat-sized footprint. By automating data acquisition, preprocessing, and scene construction, it enables researchers to evaluate proposed sensor designs, explore different observation conditions, and conduct sensor trade studies before launch.",
     "role": [
       "Pipeline design and implementation",
@@ -76,10 +76,10 @@
     "links": [],
     "figures": [
       {
-        "src": "scene-constructor-logo.png",
+        "src": "scene-constructor-logo-v2.png",
         "title": "Scene Constructor",
         "caption": "Large-scale scene construction for physics-based remote-sensing simulation.",
-        "original": "scene-constructor-logo.png",
+        "original": "scene-constructor-logo-v2.png",
         "kind": "image"
       },
       {
@@ -118,11 +118,11 @@
         "kind": "image"
       },
       {
-        "src": "output.gif",
+        "src": "output-v2.gif",
         "title": "Scene output",
         "caption": "An additional output view from the scene-construction workflow.",
-        "original": "output.gif",
-        "kind": "image"
+        "original": "output-animation.mp4",
+        "kind": "animation"
       }
     ]
   },
