@@ -53,6 +53,11 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(BUILD['gallery'](projects['phd']), '')
         rendered = BUILD['gallery'](projects['scene-constructor'])
         self.assertEqual(rendered.count('animation-toggle'), 2)
+        pair = rendered.split('<div class="figure-row columns-2">')[1].split('</figure></div>')[0]
+        self.assertIn('time-of-day', pair)
+        self.assertIn('hexagonal-tiles', pair)
+        self.assertIn('figure-num">03</span>', pair)
+        self.assertIn('figure-num">05</span>', pair)
         self.assertIn('data-animation="../assets/projects/scene-constructor/output-v2.gif"', rendered)
 
     def test_local_references(self):

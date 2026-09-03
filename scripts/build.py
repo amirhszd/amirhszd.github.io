@@ -129,11 +129,10 @@ def gallery(p):
     if not rows:
         return ''
     rendered = []
-    number = 1
+    numbers = {src: j + 1 for j, src in enumerate(figures)}
     for row in rows:
-        contents = ''.join(figure(p, figures[src], number + j) for j, src in enumerate(row))
+        contents = ''.join(figure(p, figures[src], numbers[src]) for src in row)
         rendered.append(f'<div class="figure-row columns-{len(row)}">{contents}</div>')
-        number += len(row)
     return '<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p>' + ''.join(rendered) + '</section>'
 
 for i,p in enumerate(PROJECTS):
