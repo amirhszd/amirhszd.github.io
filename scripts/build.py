@@ -27,7 +27,7 @@ def shell(title, description, body, path='index.html'):
 <title>{E(title)}</title><meta name="description" content="{E(description)}"><meta name="author" content="Amir Hassanzadeh">
 <link rel="canonical" href="{SITE}/{path if path != 'index.html' else ''}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website">
-<link rel="stylesheet" href="{prefix}assets/site/style.css"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=3"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}">Amir Hassanzadeh<span aria-hidden="true">.</span></a>
