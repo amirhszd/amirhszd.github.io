@@ -111,14 +111,39 @@ def figure(p, f, number):
     css = 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
     return f'''<figure class="figure {css}"><div class="figure-display">{visual}</div>{extra}<figcaption><span class="figure-num">{number:02d}</span><span><strong>{E(f['title'])}</strong>{E(f['caption'])}</span><a class="figure-link" href="{base + f['original']}">Open original ↗</a></figcaption></figure>'''
 
+def project_heading(p):
+    base = f"../assets/projects/{p['slug']}/"
+    hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
+    original = hero.get('original', p['image'])
+    css = ' logo' if p['slug'] == 'jostar' else ''
+    return f'''<div class="project-heading"><h1>{E(p['full_title'])}</h1><a class="project-heading-image{css}" href="{E(base + original)}" aria-label="Open full-size project image: {E(p['title'])}"><img src="{E(base + p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></a></div>'''
+
+def gallery(p):
+    figures = {f['src']: f for f in p['figures'] if f['src'] != p['image']}
+    rows = p.get('figure_rows', [[src] for src in figures])
+    used = [src for row in rows for src in row]
+    if any(not isinstance(row, list) or len(row) not in (1, 2) for row in rows):
+        raise ValueError(f"{p['slug']}: each figure row must contain one or two filenames")
+    if len(used) != len(set(used)) or set(used) != set(figures):
+        raise ValueError(f"{p['slug']}: figure_rows must include every non-heading figure exactly once")
+    if not rows:
+        return ''
+    rendered = []
+    number = 1
+    for row in rows:
+        contents = ''.join(figure(p, figures[src], number + j) for j, src in enumerate(row))
+        rendered.append(f'<div class="figure-row columns-{len(row)}">{contents}</div>')
+        number += len(row)
+    return '<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p>' + ''.join(rendered) + '</section>'
+
 for i,p in enumerate(PROJECTS):
     meta = ''.join(f'<span>{E(v)}</span>' for v in [p['dates'],p.get('status','')] if v)
     links = ''.join(anchor(x['url'],x['label']+' ↗','button') for x in p['links'])
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
-    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p><h1>{E(p['full_title'])}</h1><p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
+    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>My contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
-<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p>{''.join(figure(p,f,j+1) for j,f in enumerate(p['figures']))}</section>
+{gallery(p)}
 <div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''
     path=f"projects/{p['slug']}.html"
     (ROOT/path).write_text(shell(p['full_title']+' | Amir Hassanzadeh',p['summary'],body,path))

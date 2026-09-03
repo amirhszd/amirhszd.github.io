@@ -51,12 +51,23 @@
         "original": "spectral-reconstruction.png",
         "kind": "image"
       }
+    ],
+    "figure_rows": [
+      [
+        "masking-v2.mp4"
+      ],
+      [
+        "spatial-reconstruction.webp"
+      ],
+      [
+        "spectral-reconstruction.webp"
+      ]
     ]
   },
   {
     "slug": "scene-constructor",
     "title": "Scene Constructor",
-    "full_title": "Scene Constructor: Large-Scale DIRSIG Simulation",
+    "full_title": "Scene Constructor: Large-Scale DIRSIG 6 Simulation",
     "category": "Physics-based simulation",
     "dates": "Jan 2024 – Present",
     "summary": "Automated scene construction for Landsat-scale simulations and sensor trade studies.",
@@ -124,6 +135,26 @@
         "original": "output-animation.mp4",
         "kind": "animation"
       }
+    ],
+    "figure_rows": [
+      [
+        "landsat-comparison.webp"
+      ],
+      [
+        "terrain-view.webp"
+      ],
+      [
+        "time-of-day.gif"
+      ],
+      [
+        "colorado.webp"
+      ],
+      [
+        "hexagonal-tiles.webp"
+      ],
+      [
+        "output-v2.gif"
+      ]
     ]
   },
   {
@@ -174,6 +205,11 @@
         "original": "uncertainty.png",
         "kind": "image"
       }
+    ],
+    "figure_rows": [
+      [
+        "uncertainty.webp"
+      ]
     ]
   },
   {
@@ -227,6 +263,17 @@
         "original": "interface.pdf",
         "kind": "image"
       }
+    ],
+    "figure_rows": [
+      [
+        "artifacts.webp"
+      ],
+      [
+        "comparison.webp"
+      ],
+      [
+        "interface.webp"
+      ]
     ]
   },
   {
@@ -271,6 +318,11 @@
         "original": "architecture.pdf",
         "kind": "image"
       }
+    ],
+    "figure_rows": [
+      [
+        "architecture.webp"
+      ]
     ]
   },
   {
@@ -320,7 +372,8 @@
         "original": "workflow.png",
         "kind": "image"
       }
-    ]
+    ],
+    "figure_rows": []
   },
   {
     "slug": "jostar",
@@ -375,6 +428,14 @@
         "original": "pareto-front.gif",
         "kind": "animation"
       }
+    ],
+    "figure_rows": [
+      [
+        "example.gif"
+      ],
+      [
+        "pareto-front.gif"
+      ]
     ]
   }
 ]
