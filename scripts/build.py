@@ -27,7 +27,7 @@ def shell(title, description, body, path='index.html'):
 <title>{E(title)}</title><meta name="description" content="{E(description)}"><meta name="author" content="Amir Hassanzadeh">
 <link rel="canonical" href="{SITE}/{path if path != 'index.html' else ''}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website">
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=4"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=5"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}">Amir Hassanzadeh<span aria-hidden="true">.</span></a>
@@ -100,47 +100,54 @@ def figure(p, f, number):
     kind = f.get('kind', 'image')
     extra = ''
     if kind == 'video':
-        visual = f'<video controls autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">{anchor(src,"Download video")}</video>'
+        visual = f'<video controls autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">Video playback is not supported in this browser.</video>'
     elif kind == 'animation':
         still = src.replace('.gif', '.webp')
         identifier = f"animation-{number}"
         visual = f'<img id="{identifier}" src="{still}" data-animation="{src}" data-still="{still}" alt="{E(f["title"])}" loading="lazy">'
         extra = f'<button hidden class="button animation-toggle" type="button" aria-controls="{identifier}" aria-pressed="false">Play animation</button>'
     else:
-        visual = f'<a href="{base + f["original"]}" aria-label="Open original: {E(f["title"])}"><img src="{src}" alt="{E(f["caption"])}" loading="lazy" decoding="async"></a>'
+        visual = f'<img src="{src}" alt="{E(f["caption"])}" loading="lazy" decoding="async">'
     css = 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
-    return f'''<figure class="figure {css}"><div class="figure-display">{visual}</div>{extra}<figcaption><span class="figure-num">{number:02d}</span><span><strong>{E(f['title'])}</strong>{E(f['caption'])}</span><a class="figure-link" href="{base + f['original']}">Open original ↗</a></figcaption></figure>'''
+    return f'''<figure class="figure {css}" tabindex="0"><div class="figure-display">{visual}</div>{extra}<figcaption><span class="figure-num">{number:02d}</span><span><strong>{E(f['title'])}</strong>{E(f['caption'])}</span></figcaption></figure>'''
 
 def project_heading(p):
-    base = f"../assets/projects/{p['slug']}/"
     hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
-    original = hero.get('original', p['image'])
     css = ' logo' if p['slug'] == 'jostar' else ''
-    return f'''<div class="project-heading"><h1>{E(p['full_title'])}</h1><a class="project-heading-image{css}" href="{E(base + original)}" aria-label="Open full-size project image: {E(p['title'])}"><img src="{E(base + p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></a></div>'''
+    return f'''<div class="project-heading"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></div></div>'''
 
 def gallery(p):
     figures = {f['src']: f for f in p['figures'] if f['src'] != p['image']}
-    rows = p.get('figure_rows', [[src] for src in figures])
-    used = [src for row in rows for src in row]
-    if any(not isinstance(row, list) or len(row) not in (1, 2) for row in rows):
-        raise ValueError(f"{p['slug']}: each figure row must contain one or two filenames")
-    if len(used) != len(set(used)) or set(used) != set(figures):
-        raise ValueError(f"{p['slug']}: figure_rows must include every non-heading figure exactly once")
-    if not rows:
+    ordered = list(figures)
+    if not ordered:
         return ''
     rendered = []
     numbers = {src: j + 1 for j, src in enumerate(figures)}
-    for row in rows:
+    for start in range(0, len(ordered), 2):
+        row = ordered[start:start + 2]
         contents = ''.join(figure(p, figures[src], numbers[src]) for src in row)
         rendered.append(f'<div class="figure-row columns-{len(row)}">{contents}</div>')
     return '<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p>' + ''.join(rendered) + '</section>'
 
 def interactive_demo(p):
-    if p['slug'] != 'scene-constructor':
+    demos = {
+        'scene-constructor': (
+            'Landsat Pushbroom Simulation',
+            '../assets/projects/scene-constructor/viewer/index.html',
+            'Interactive Landsat pushbroom simulation showing a DIRSIG Scene Constructor acquisition over the eastern United States',
+        ),
+        'lidar': (
+            'Interactive 3D Voxelized Forest',
+            '../assets/projects/lidar/viewer/index.html',
+            'Interactive 3D voxelized point cloud of the simulated Harvard Forest',
+        ),
+    }
+    if p['slug'] not in demos:
         return ''
-    return '''<section class="interactive-demo" aria-labelledby="interactive-demo-title">
-<div class="interactive-demo-heading"><div><p class="eyebrow">Interactive demonstration</p><h2 id="interactive-demo-title">Landsat Pushbroom Simulation</h2></div><a class="text-link" href="../assets/projects/scene-constructor/viewer/index.html" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
-<iframe src="../assets/projects/scene-constructor/viewer/index.html" title="Interactive Landsat pushbroom simulation showing a DIRSIG Scene Constructor acquisition over the eastern United States" loading="eager" allowfullscreen></iframe>
+    title, url, description = demos[p['slug']]
+    return f'''<section class="interactive-demo" aria-labelledby="interactive-demo-title">
+<div class="interactive-demo-heading"><div><p class="eyebrow">Interactive demonstration</p><h2 id="interactive-demo-title">{E(title)}</h2></div><a class="text-link" href="{E(url)}" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+<iframe src="{E(url)}" title="{E(description)}" loading="eager" allowfullscreen></iframe>
 </section>'''
 
 for i,p in enumerate(PROJECTS):

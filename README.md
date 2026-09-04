@@ -14,20 +14,9 @@ Run `python3 scripts/build.py` and commit the generated HTML alongside the sourc
 
 ## Project image layouts
 
-Each project's `image` appears to the right of its title, without a caption or number. Clicking it opens the original. That image is automatically omitted from the gallery; its entry in `figures` retains the original-file link and descriptive alternative text.
+Each project's `image` appears to the right of its title, without a caption, number, or link. That image is automatically omitted from the gallery; its entry in `figures` supplies descriptive alternative text.
 
-Choose the gallery layout in `content/projects.json` using `figure_rows`. Each inner list is one row: one filename makes a one-column row; two filenames make a two-column row. Two-column rows stack on phones. Include every figure except the heading image exactly once. Filenames must match the `src` fields in `figures`.
-
-For example, SST can show the masking video on its own and the reconstructions side by side:
-
-```json
-"figure_rows": [
-  ["masking-v2.mp4"],
-  ["spatial-reconstruction.webp", "spectral-reconstruction.webp"]
-]
-```
-
-To separate that pair, put each filename in its own inner list. Rebuild with `python3 scripts/build.py`, then commit the JSON and generated project pages to publish the choice. This is an author setting, not a visitor-facing switch; there is no on-page editor. Omitting `figure_rows` defaults to single-column rows.
+Project galleries place figures in two-column rows on desktop and one column on phones. Hovering or keyboard-focusing a figure expands it and its caption across the full desktop row. Gallery images are intentionally not links; animation and video controls remain interactive.
 
 ## Publication status
 

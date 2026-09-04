@@ -21,3 +21,13 @@
 .interactive-demo iframe{display:block;width:100%;height:min(72vh,760px);min-height:560px;border:1px solid var(--line);border-radius:var(--radius);background:#081016}
 @media(max-width:680px){.project-heading{grid-template-columns:minmax(0,1fr);gap:1.5rem}.project-heading-image{width:100%;max-width:480px;justify-self:center}.project-heading h1{font-size:2.25rem}.figure-row.columns-2{grid-template-columns:minmax(0,1fr)}.figure-row{gap:2.7rem;margin-bottom:2.7rem}.interactive-demo-heading{align-items:start;flex-direction:column;gap:.65rem}.interactive-demo iframe{height:72vh;min-height:500px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+.figure-row,.figure-row.columns-1,.figure-row.columns-2{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.figure-row .figure{min-width:0;margin:0;transition:box-shadow .2s ease}
+.figure-row .figure:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.figure-row .figure-display{padding:1rem}
+.figure-row .figure-display img,.figure-row .figure-display video{max-height:480px}
+.figure-row .figure figcaption{grid-template-columns:1.5rem minmax(0,1fr)}
+.figure-row:has(.figure:hover) .figure:not(:hover),.figure-row:not(:has(.figure:hover)):has(.figure:focus-within) .figure:not(:focus-within){display:none}
+.figure-row .figure:hover,.figure-row .figure:focus,.figure-row .figure:focus-within{grid-column:1/-1}
+.figure-row .figure:hover .figure-display img,.figure-row .figure:hover .figure-display video,.figure-row .figure:focus .figure-display img,.figure-row .figure:focus .figure-display video,.figure-row .figure:focus-within .figure-display img,.figure-row .figure:focus-within .figure-display video{max-height:850px}
+@media(max-width:680px){.figure-row,.figure-row.columns-1,.figure-row.columns-2{grid-template-columns:minmax(0,1fr)}.figure-row:has(.figure:hover) .figure:not(:hover),.figure-row:not(:has(.figure:hover)):has(.figure:focus-within) .figure:not(:focus-within){display:block}.figure-row .figure:hover,.figure-row .figure:focus,.figure-row .figure:focus-within{grid-column:auto}}
