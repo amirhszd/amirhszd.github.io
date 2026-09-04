@@ -67,6 +67,11 @@ class LayoutTests(unittest.TestCase):
         self.assertIn('../assets/projects/lidar/viewer/index.html', lidar)
         self.assertEqual(BUILD['interactive_demo'](projects['sst']), '')
 
+    def test_interactive_demo_follows_overview(self):
+        for slug in ('scene-constructor', 'lidar'):
+            page = (ROOT / 'projects' / f'{slug}.html').read_text()
+            self.assertLess(page.index('detail-overview'), page.index('interactive-demo'))
+
     def test_scene_constructor_viewer_bundle(self):
         viewer = ROOT / 'assets/projects/scene-constructor/viewer'
         metadata = json.loads((viewer / 'acquisition.json').read_text())

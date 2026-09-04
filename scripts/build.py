@@ -152,8 +152,8 @@ for i,p in enumerate(PROJECTS):
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
     body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
-{interactive_demo(p)}
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>My contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
+{interactive_demo(p)}
 {gallery(p)}
 <div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''
     path=f"projects/{p['slug']}.html"
