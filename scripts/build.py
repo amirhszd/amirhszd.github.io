@@ -27,7 +27,7 @@ def shell(title, description, body, path='index.html'):
 <title>{E(title)}</title><meta name="description" content="{E(description)}"><meta name="author" content="Amir Hassanzadeh">
 <link rel="canonical" href="{SITE}/{path if path != 'index.html' else ''}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website">
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=3"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=4"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}">Amir Hassanzadeh<span aria-hidden="true">.</span></a>
@@ -135,12 +135,21 @@ def gallery(p):
         rendered.append(f'<div class="figure-row columns-{len(row)}">{contents}</div>')
     return '<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p>' + ''.join(rendered) + '</section>'
 
+def interactive_demo(p):
+    if p['slug'] != 'scene-constructor':
+        return ''
+    return '''<section class="interactive-demo" aria-labelledby="interactive-demo-title">
+<div class="interactive-demo-heading"><div><p class="eyebrow">Interactive demonstration</p><h2 id="interactive-demo-title">Landsat Pushbroom Simulation</h2></div><a class="text-link" href="../assets/projects/scene-constructor/viewer/index.html" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+<iframe src="../assets/projects/scene-constructor/viewer/index.html" title="Interactive Landsat pushbroom simulation showing a DIRSIG Scene Constructor acquisition over the eastern United States" loading="eager" allowfullscreen></iframe>
+</section>'''
+
 for i,p in enumerate(PROJECTS):
     meta = ''.join(f'<span>{E(v)}</span>' for v in [p['dates'],p.get('status','')] if v)
     links = ''.join(anchor(x['url'],x['label']+' ↗','button') for x in p['links'])
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
     body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
+{interactive_demo(p)}
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>My contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
 {gallery(p)}
 <div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''

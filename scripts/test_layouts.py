@@ -1,5 +1,6 @@
 """Regression checks for project headings and configurable figure rows."""
 import copy
+import json
 from html.parser import HTMLParser
 from pathlib import Path
 import runpy
@@ -59,6 +60,22 @@ class LayoutTests(unittest.TestCase):
         self.assertIn('figure-num">03</span>', pair)
         self.assertIn('figure-num">05</span>', pair)
         self.assertIn('data-animation="../assets/projects/scene-constructor/output-v2.gif"', rendered)
+
+    def test_scene_constructor_interactive_demo(self):
+        projects = {p['slug']: p for p in BUILD['PROJECTS']}
+        rendered = BUILD['interactive_demo'](projects['scene-constructor'])
+        self.assertIn('<iframe ', rendered)
+        self.assertIn('viewer/index.html', rendered)
+        self.assertEqual(BUILD['interactive_demo'](projects['sst']), '')
+
+    def test_scene_constructor_viewer_bundle(self):
+        viewer = ROOT / 'assets/projects/scene-constructor/viewer'
+        metadata = json.loads((viewer / 'acquisition.json').read_text())
+        index = json.loads((viewer / 'imagery-index.json').read_text())
+        bundle_size = (viewer / 'imagery.bin').stat().st_size
+        self.assertEqual(len(index), len(metadata['segments']))
+        self.assertEqual(index[0]['offset'], 0)
+        self.assertEqual(index[-1]['offset'] + index[-1]['length'], bundle_size)
 
     def test_local_references(self):
         for page in [ROOT/'index.html', ROOT/'research.html', *sorted((ROOT/'projects').glob('*.html'))]:
