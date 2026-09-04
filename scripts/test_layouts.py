@@ -1,4 +1,4 @@
-"""Regression checks for project headings and configurable figure rows."""
+"""Regression checks for project headings, galleries, and interactive viewers."""
 import json
 from html.parser import HTMLParser
 from pathlib import Path
@@ -34,11 +34,12 @@ class LayoutTests(unittest.TestCase):
             self.assertNotIn('/' + project['image'] + '"', gallery)
             self.assertEqual(gallery.count('<figure '), len(project['figures']) - 1)
 
-    def test_two_columns_and_playback(self):
+    def test_gallery_window_and_playback(self):
         project = BUILD['PROJECTS'][0]
         rendered = BUILD['gallery'](project)
-        self.assertEqual(rendered.count('figure-row columns-2'), 1)
-        self.assertEqual(rendered.count('figure-row columns-1'), 1)
+        self.assertIn('gallery-window items-3', rendered)
+        self.assertEqual(rendered.count('<figure '), 3)
+        self.assertIn('figure-description', rendered)
         self.assertIn('controls autoplay muted loop playsinline', rendered)
         self.assertNotIn('figure-link', rendered)
         self.assertNotIn('Open original', rendered)
@@ -48,7 +49,7 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(BUILD['gallery'](projects['phd']), '')
         rendered = BUILD['gallery'](projects['scene-constructor'])
         self.assertEqual(rendered.count('animation-toggle'), 2)
-        self.assertEqual(rendered.count('figure-row columns-2'), 3)
+        self.assertIn('gallery-window items-6', rendered)
         self.assertIn('figure-num">03</span>', rendered)
         self.assertIn('figure-num">05</span>', rendered)
         self.assertIn('data-animation="../assets/projects/scene-constructor/output-v2.gif"', rendered)
@@ -75,7 +76,8 @@ class LayoutTests(unittest.TestCase):
     def test_lidar_viewer_sample(self):
         viewer = ROOT / 'assets/projects/lidar/viewer'
         metadata = json.loads((viewer / 'metadata.json').read_text())
-        self.assertEqual((viewer / 'points.bin').stat().st_size, metadata['sample_points'] * 16)
+        self.assertEqual((viewer / 'points.bin').stat().st_size, metadata['sample_points'] * metadata['record_bytes'])
+        self.assertEqual(metadata['fields'], ['x', 'y', 'z', 'intensity', 'bark', 'leaf', 'soil', 'other'])
         self.assertLess(metadata['sample_points'], metadata['source_points'])
 
     def test_local_references(self):

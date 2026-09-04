@@ -13,14 +13,16 @@
     <section class="title-card">
       <p class="eyebrow">Harvard Forest · DIRSIG simulation</p>
       <h1>Voxelized Forest Point Cloud</h1>
-      <p id="status">Loading representative sample…</p>
+      <p id="status">Drag to orbit · Scroll to zoom · Hover over a voxel</p>
     </section>
     <section class="controls" aria-label="Point-cloud controls">
+      <label>Color by <select id="scalar-field"><option value="intensity">Intensity</option><option value="height">Height (Z)</option></select></label>
       <label>Point size <input id="point-size" type="range" min="0.5" max="5" step="0.25" value="1.75"></label>
       <label class="check"><input id="rotate" type="checkbox" checked> Auto-rotate</label>
       <button id="reset" type="button">Reset view</button>
-      <div class="legend"><span>Low intensity</span><i aria-hidden="true"></i><span>High intensity</span></div>
+      <div class="legend"><span id="legend-low">Low intensity</span><i aria-hidden="true"></i><span id="legend-high">High intensity</span></div>
     </section>
+    <output id="voxel-tooltip" class="voxel-tooltip" hidden></output>
   </main>
   <script type="module" src="app.js"></script>
 </body>
