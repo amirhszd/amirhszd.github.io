@@ -16,7 +16,7 @@ Run `python3 scripts/build.py` and commit the generated HTML alongside the sourc
 
 Each project's `image` appears to the right of its title, without a caption, number, or link. That image is automatically omitted from the gallery; its entry in `figures` supplies descriptive alternative text.
 
-Project galleries place all figures in one bounded window. Hovering or keyboard-focusing a figure brings it to the center at a larger size and reveals its full caption while the surrounding figures recede. Gallery images are intentionally not links; animation and video controls remain interactive.
+Project galleries place all figures in one bounded showcase. Clicking a card—or pressing Enter or Space while it is focused—expands it into a large split view with the complete caption; clicking it again or pressing Escape returns to the grid. Gallery images are intentionally not links, and animation and video controls remain interactive.
 
 ## Publication status
 

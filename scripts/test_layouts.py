@@ -37,7 +37,10 @@ class LayoutTests(unittest.TestCase):
     def test_gallery_window_and_playback(self):
         project = BUILD['PROJECTS'][0]
         rendered = BUILD['gallery'](project)
-        self.assertIn('gallery-window items-3', rendered)
+        self.assertIn('scientific-showcase-box items-3', rendered)
+        self.assertIn('scientific-showcase-box', rendered)
+        self.assertIn('sci-card', rendered)
+        self.assertIn('aria-expanded="false"', rendered)
         self.assertEqual(rendered.count('<figure '), 3)
         self.assertIn('figure-description', rendered)
         self.assertIn('controls autoplay muted loop playsinline', rendered)
@@ -49,9 +52,9 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(BUILD['gallery'](projects['phd']), '')
         rendered = BUILD['gallery'](projects['scene-constructor'])
         self.assertEqual(rendered.count('animation-toggle'), 2)
-        self.assertIn('gallery-window items-6', rendered)
-        self.assertIn('figure-num">03</span>', rendered)
-        self.assertIn('figure-num">05</span>', rendered)
+        self.assertIn('scientific-showcase-box items-6', rendered)
+        self.assertIn('figure-num sci-num">03</span>', rendered)
+        self.assertIn('figure-num sci-num">05</span>', rendered)
         self.assertIn('data-animation="../assets/projects/scene-constructor/output-v2.gif"', rendered)
 
     def test_scene_constructor_interactive_demo(self):
@@ -79,6 +82,12 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual((viewer / 'points.bin').stat().st_size, metadata['sample_points'] * metadata['record_bytes'])
         self.assertEqual(metadata['fields'], ['x', 'y', 'z', 'intensity', 'bark', 'leaf', 'soil', 'other'])
         self.assertLess(metadata['sample_points'], metadata['source_points'])
+
+    def test_gallery_interaction_script(self):
+        script = (ROOT / 'assets/site/main.js').read_text()
+        self.assertIn(".scientific-showcase-box", script)
+        self.assertIn("focused-view", script)
+        self.assertIn("event.key === 'Escape'", script)
 
     def test_local_references(self):
         for page in [ROOT/'index.html', ROOT/'research.html', *sorted((ROOT/'projects').glob('*.html'))]:

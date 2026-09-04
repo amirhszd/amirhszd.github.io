@@ -27,7 +27,7 @@ def shell(title, description, body, path='index.html'):
 <title>{E(title)}</title><meta name="description" content="{E(description)}"><meta name="author" content="Amir Hassanzadeh">
 <link rel="canonical" href="{SITE}/{path if path != 'index.html' else ''}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website">
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=6"><script src="{prefix}assets/site/main.js?v=2" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=7"><script src="{prefix}assets/site/main.js?v=3" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}">Amir Hassanzadeh<span aria-hidden="true">.</span></a>
@@ -109,7 +109,7 @@ def figure(p, f, number):
     else:
         visual = f'<img src="{src}" alt="{E(f["caption"])}" loading="lazy" decoding="async">'
     css = 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
-    return f'''<figure class="figure {css}" tabindex="0"><div class="figure-display">{visual}</div>{extra}<figcaption><span class="figure-num">{number:02d}</span><span class="figure-copy"><strong>{E(f['title'])}</strong><span class="figure-description">{E(f['caption'])}</span></span></figcaption></figure>'''
+    return f'''<figure class="figure sci-card {css}" tabindex="0" aria-expanded="false"><div class="figure-display sci-media">{visual}</div>{extra}<figcaption class="sci-caption"><span class="figure-num sci-num">{number:02d}</span><div class="figure-copy"><h3>{E(f['title'])}</h3><p class="figure-description sci-desc">{E(f['caption'])}</p></div></figcaption></figure>'''
 
 def project_heading(p):
     hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
@@ -123,7 +123,7 @@ def gallery(p):
         return ''
     numbers = {src: j + 1 for j, src in enumerate(figures)}
     contents = ''.join(figure(p, figures[src], numbers[src]) for src in ordered)
-    return f'<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p><div class="gallery-window items-{len(ordered)}">{contents}</div></section>'
+    return f'<section class="gallery" aria-label="Project figures and demonstrations"><p class="eyebrow">A closer look</p><div class="gallery-window scientific-showcase-box items-{len(ordered)}">{contents}</div></section>'
 
 def interactive_demo(p):
     demos = {

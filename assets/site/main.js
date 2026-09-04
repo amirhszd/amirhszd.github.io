@@ -32,3 +32,52 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     video.pause();
   });
 }
+
+document.querySelectorAll('.scientific-showcase-box').forEach(showcase => {
+  const cards = [...showcase.querySelectorAll('.sci-card')];
+
+  const collapse = card => {
+    card.classList.remove('focused-view');
+    card.setAttribute('aria-expanded', 'false');
+    card.removeAttribute('style');
+    showcase.classList.remove('active-mode');
+  };
+
+  const expand = card => {
+    const rect = card.getBoundingClientRect();
+    const parentRect = showcase.getBoundingClientRect();
+    card.style.position = 'absolute';
+    card.style.top = `${rect.top - parentRect.top}px`;
+    card.style.left = `${rect.left - parentRect.left}px`;
+    card.style.width = `${rect.width}px`;
+    card.style.height = `${rect.height}px`;
+    card.offsetHeight;
+    showcase.classList.add('active-mode');
+    card.classList.add('focused-view');
+    card.setAttribute('aria-expanded', 'true');
+  };
+
+  const toggle = card => card.classList.contains('focused-view') ? collapse(card) : expand(card);
+
+  cards.forEach(card => {
+    card.addEventListener('click', event => {
+      if (event.target.closest('button, video, input, select, a')) return;
+      toggle(card);
+    });
+    card.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target === card) {
+        event.preventDefault();
+        toggle(card);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const focused = showcase.querySelector('.focused-view');
+    if (focused) {
+      collapse(focused);
+      focused.focus();
+    }
+  });
+});
