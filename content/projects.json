@@ -81,7 +81,7 @@
     "dates": "Jan 2024 – Present",
     "summary": "Automated scene construction for Landsat-scale simulations and sensor trade studies.",
     "image": "scene-constructor-logo-v2.png",
-    "overview": "Scene Constructor is an automated framework for building large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. It supports sensor trade studies by allowing users to vary atmospheric conditions, sensor designs, configurations, acquisition settings, and noise levels to evaluate sensor performance across different scenarios. Primarily designed to support Landsat 10 studies, the framework can be extended to other sensors. It integrates satellite surface reflectance imagery, terrain elevation, surface emissivity, atmospheric conditions, and solar and sensor geometry to simulate imagery across reflective and thermal wavelengths. DGGRID provides hexagonal tiling and spatial indexing, organizing the landscape into reusable, geographically referenced scenes that can be assembled into continuous regions spanning a Landsat-sized footprint. By automating data acquisition, preprocessing, and scene construction, the framework enables systematic evaluation of sensor concepts before launch.",
+    "overview": "Scene Constructor is an automated framework for building large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. Designed primarily to support Landsat 10 sensor trade studies, it enables users to evaluate sensor concepts before launch by varying atmospheric conditions, sensor configurations, acquisition geometry, and noise characteristics. The framework integrates satellite-derived surface reflectance, terrain elevation, surface emissivity, atmospheric conditions, and solar-sensor geometry to support simulations across reflective and thermal wavelengths. Using DGGRID-based hexagonal tiling and spatial indexing, it organizes these inputs into reusable, geographically referenced scenes that can be assembled into continuous Landsat-scale regions. By automating data acquisition, preprocessing, and scene construction, Scene Constructor provides a scalable workflow for systematic sensor-performance evaluation and can be adapted to support other remote-sensing platforms.",
     "role": [
       "Built an automated scene-construction pipeline for the entire CONUS.",
       "Integrated satellite, terrain, emissivity, atmosphere, and acquisition data.",
@@ -141,7 +141,7 @@
       {
         "src": "hexagonal-tiles.webp",
         "title": "DGGRID Hexagonal Tiling and Spatial Indexing",
-        "caption": "Scene Constructor uses DGGRID’s hexagonal tiling and spatial indexing system to partition the Earth into geographically referenced tiles. This organization supports large-scale scene assembly and rendering with DIRSIG’s multithreading capabilities. The configuration shown uses aperture 3 and resolution 2, producing tiles approximately 11 km across.",
+        "caption": "Scene Constructor uses DGGRID’s hexagonal tiling and spatial indexing system to partition the Earth into geographically referenced tiles. This organization supports large-scale scene assembly and rendering with DIRSIG’s multithreading capabilities. The configuration shown uses aperture 3 and resolution 12, producing tiles approximately 11 km across.",
         "original": "hexagonal-tiles.png",
         "kind": "image"
       },
