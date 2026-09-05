@@ -7,7 +7,7 @@
     "dates": "March 2026 – Present",
     "status": "Ongoing research",
     "summary": "Self-supervised temporal hyperspectral representation learning for biotechnology.",
-    "image": "architecture.webp",
+    "image": "temporal-hsti-header.png",
     "overview": "Temporal Hyperspectral Representation Learning for Biotechnology is a self-supervised framework for learning robust representations from multi-temporal hyperspectral imagery. The framework combines a masked autoencoder with factorized spectral, spatial, and temporal attention, FiLM-based metadata conditioning, and adversarial domain prediction to reduce the influence of collection geometry and acquisition effects in the latent space. Data-processing pipelines span greenhouse, UAS, and EO-1 Hyperion satellite observations, including the 4.5 TB ChronoEarth dataset of approximately 500,000 image chips across up to 235 timestamps over 17 years. The research investigates whether latent-space trajectories can distinguish healthy from stressed vegetation while suppressing observational and environmental variability; representation quality is evaluated through downstream tasks such as segmentation.",
     "role": [
       "Architecture design",
@@ -23,6 +23,14 @@
     ],
     "links": [],
     "figures": [
+      {
+        "src": "temporal-hsti-header.png",
+        "title": "Healthy and infected latent trajectories",
+        "caption": "This research leverages large volumes of available remote sensing data and self-supervised learning to distinguish healthy plant trajectories from disease- or infection-induced trajectories in the latent representation space.",
+        "original": "temporal_hsti_header(1).png",
+        "kind": "image",
+        "show_in_gallery": true
+      },
       {
         "src": "architecture.webp",
         "title": "Spatial-spectral-temporal masked-autoencoder architecture",

@@ -41,11 +41,11 @@ class LayoutTests(unittest.TestCase):
     def test_gallery_window_and_playback(self):
         project = BUILD['PROJECTS'][0]
         rendered = BUILD['gallery'](project)
-        self.assertIn('scientific-showcase-box items-4', rendered)
+        self.assertIn('scientific-showcase-box items-5', rendered)
         self.assertIn('scientific-showcase-box', rendered)
         self.assertIn('sci-card', rendered)
         self.assertIn('aria-expanded="false"', rendered)
-        self.assertEqual(rendered.count('<figure '), 4)
+        self.assertEqual(rendered.count('<figure '), 5)
         self.assertIn('figure-description', rendered)
         self.assertIn('autoplay muted loop playsinline', rendered)
         self.assertNotIn('<video controls', rendered)
