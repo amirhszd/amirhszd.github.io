@@ -114,7 +114,7 @@ def figure(p, f, number):
 def project_heading(p):
     hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
     css = ' logo' if p['slug'] == 'jostar' else ''
-    return f'''<div class="project-heading"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></div></div>'''
+    return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></div></div>'''
 
 def gallery(p):
     figures = {f['src']: f for f in p['figures'] if f['src'] != p['image'] or f.get('show_in_gallery')}
@@ -151,7 +151,7 @@ for i,p in enumerate(PROJECTS):
     links = ''.join(anchor(x['url'],x['label']+' ↗','button') for x in p['links'])
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
-    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
+    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>Contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
 {interactive_demo(p)}
 {gallery(p)}
