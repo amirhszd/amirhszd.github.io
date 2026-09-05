@@ -73,7 +73,7 @@ home_body = f'''
 <div><p class="eyebrow">Earth observation & applied AI</p><h1 id="intro-title">Amir<br>Hassanzadeh<span style="color:var(--accent)">.</span></h1>
 <p class="lead">Understanding our world through remote sensing, machine learning, and physical simulation.</p>
 <p class="affiliation">Research Assistant Professor<br>Rochester Institute of Technology</p>
-<div class="links"><a class="button primary" href="#research">Explore my work ↓</a>{anchor(SCHOLAR,'Google Scholar ↗','button')}</div></div>
+<div class="links"><a class="button primary" href="#research">Explore research ↓</a>{anchor(SCHOLAR,'Google Scholar ↗','button')}</div></div>
 <figure class="hero-visual"><img src="assets/projects/lidar/harvard-forest.webp" width="1536" height="1024" alt="Aerial view of the simulated Harvard Forest landscape" fetchpriority="high"><figcaption><span>Harvard Forest · DIRSIG simulation</span><a href="projects/lidar.html">View project ↗</a></figcaption></figure>
 </section>
 <section id="research" class="section"><div class="wrap">
@@ -86,9 +86,9 @@ home_body = f'''
 <ol class="pub-list">{publications()}</ol></div></section>
 <section id="about" class="section"><div class="wrap about-grid">
 <div><p class="eyebrow">About</p><h2 style="margin-top:.8rem">Research meets<br>implementation.</h2><img class="portrait" src="assets/site/headshot.jpeg" alt="Amir Hassanzadeh" width="180" height="180" loading="lazy"><a class="text-link" href="assets/docs/Amir-Hassanzadeh-Resume.pdf">Download résumé ↗</a></div>
-<div class="about-copy"><p>I am a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. I develop methods and software for extracting meaningful information from satellite, drone, hyperspectral, thermal, and LiDAR observations.</p>
-<p>My work spans self-supervised geospatial foundation models, Landsat surface-temperature retrieval and uncertainty, large-scale DIRSIG scene construction, and agricultural monitoring. I earned my Ph.D. in Imaging Science from RIT in 2022, where my research connected greenhouse spectroscopy with drone-based crop yield and harvest-maturity assessment.</p>
-<p>I also teach <em>Applications of Machine Learning in Remote Sensing</em> and advise graduate and undergraduate researchers. Earlier industry experience at AgerPoint and PrecisionHawk informs my focus on practical, usable research software.</p>
+<div class="about-copy"><p>Amir Hassanzadeh is a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. His work develops methods and software for extracting meaningful information from satellite, drone, hyperspectral, thermal, and LiDAR observations.</p>
+<p>Research spans self-supervised geospatial foundation models, Landsat surface-temperature retrieval and uncertainty, large-scale DIRSIG scene construction, and agricultural monitoring. A Ph.D. in Imaging Science from RIT, earned in 2022, connected greenhouse spectroscopy with drone-based crop-yield and harvest-maturity assessment.</p>
+<p>Teaching includes <em>Applications of Machine Learning in Remote Sensing</em>, along with graduate and undergraduate research advising. Earlier industry experience at AgerPoint and PrecisionHawk informs a focus on practical, usable research software.</p>
 <ul class="background-list"><li><strong>Research Assistant Professor · RIT</strong><span>April 2026 – Present</span></li><li><strong>Researcher / Engineer II · RIT</strong><span>June 2022 – April 2026</span></li><li><strong>Ph.D. in Imaging Science · RIT</strong><span>2022</span></li><li><strong>B.Sc. in Engineering · University of Guilan</strong><span>2016</span></li></ul>
 </div></div></section>
 <section id="contact" class="contact"><div class="wrap contact-inner"><div><h2>Get in touch</h2><p>Research, collaboration, and opportunities.</p></div><div><a href="mailto:{EMAIL}">{EMAIL}</a><div class="links">{anchor('https://github.com/amirhszd','GitHub ↗','text-link')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn ↗','text-link')}{anchor(SCHOLAR,'Scholar ↗','text-link')}</div></div></div></section>'''
@@ -152,7 +152,7 @@ for i,p in enumerate(PROJECTS):
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
     body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<p class="summary">{E(p['summary'])}</p><div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
-<div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>My contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
+<div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>Contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
 {interactive_demo(p)}
 {gallery(p)}
 <div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''

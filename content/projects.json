@@ -8,7 +8,7 @@
     "status": "Ongoing research",
     "summary": "Self-supervised temporal hyperspectral representation learning for biotechnology.",
     "image": "architecture.webp",
-    "overview": "Temporal Hyperspectral Representation Learning for Biotechnology is a self-supervised framework for learning robust representations from multi-temporal hyperspectral imagery. I designed a masked autoencoder with factorized spectral, spatial, and temporal attention, FiLM-based metadata conditioning, and adversarial domain prediction to reduce the influence of collection geometry and acquisition effects in the latent space. The work includes data-processing pipelines spanning greenhouse, UAS, and EO-1 Hyperion satellite observations, including the 4.5 TB ChronoEarth dataset of approximately 500,000 image chips across up to 235 timestamps over 17 years. The research investigates whether latent-space trajectories can distinguish healthy from stressed vegetation while suppressing observational and environmental variability; representation quality is evaluated through downstream tasks such as segmentation.",
+    "overview": "Temporal Hyperspectral Representation Learning for Biotechnology is a self-supervised framework for learning robust representations from multi-temporal hyperspectral imagery. The framework combines a masked autoencoder with factorized spectral, spatial, and temporal attention, FiLM-based metadata conditioning, and adversarial domain prediction to reduce the influence of collection geometry and acquisition effects in the latent space. Data-processing pipelines span greenhouse, UAS, and EO-1 Hyperion satellite observations, including the 4.5 TB ChronoEarth dataset of approximately 500,000 image chips across up to 235 timestamps over 17 years. The research investigates whether latent-space trajectories can distinguish healthy from stressed vegetation while suppressing observational and environmental variability; representation quality is evaluated through downstream tasks such as segmentation.",
     "role": [
       "Architecture design",
       "Data processing",
@@ -39,18 +39,18 @@
         "kind": "video"
       },
       {
-        "src": "spatial-reconstruction.gif",
+        "src": "spatial.mp4",
         "title": "Spatial reconstruction",
         "caption": "Original images, masked inputs, and reconstructed spatial structure in selected examples.",
-        "original": "ezgif.com-crop-spatial.gif",
-        "kind": "image"
+        "original": "spatial.mp4",
+        "kind": "video"
       },
       {
-        "src": "spectral-reconstruction.gif",
+        "src": "spectral.mp4",
         "title": "Spectral reconstruction",
         "caption": "Target and predicted spectra at masked pixels. The highlighted spectral interval is withheld from the surrounding context.",
-        "original": "ezgif.com-crop-spectral.gif",
-        "kind": "image"
+        "original": "spectral.mp4",
+        "kind": "video"
       }
     ],
     "figure_rows": [
@@ -58,10 +58,10 @@
         "masking-v2.mp4"
       ],
       [
-        "spatial-reconstruction.webp"
+        "spatial.mp4"
       ],
       [
-        "spectral-reconstruction.webp"
+        "spectral.mp4"
       ]
     ]
   },
@@ -73,7 +73,7 @@
     "dates": "Jan 2024 – Present",
     "summary": "Automated scene construction for Landsat-scale simulations and sensor trade studies.",
     "image": "scene-constructor-logo-v2.png",
-    "overview": "Scene Constructor is an automated framework I developed to build large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. It supports sensor trade studies by allowing users to vary atmospheric conditions, sensor designs, configurations, acquisition settings, and noise levels to evaluate sensor performance across different scenarios. Primarily designed to support Landsat 10 studies, the framework can be extended to other sensors. It integrates satellite surface reflectance imagery, terrain elevation, surface emissivity, atmospheric conditions, and solar and sensor geometry to simulate imagery across reflective and thermal wavelengths. DGGRID provides hexagonal tiling and spatial indexing, organizing the landscape into reusable, geographically referenced scenes that can be assembled into continuous regions spanning a Landsat-sized footprint. By automating data acquisition, preprocessing, and scene construction, the framework enables systematic evaluation of sensor concepts before launch.",
+    "overview": "Scene Constructor is an automated framework for building large-scale virtual landscapes for physics-based remote-sensing simulations in DIRSIG. It supports sensor trade studies by allowing users to vary atmospheric conditions, sensor designs, configurations, acquisition settings, and noise levels to evaluate sensor performance across different scenarios. Primarily designed to support Landsat 10 studies, the framework can be extended to other sensors. It integrates satellite surface reflectance imagery, terrain elevation, surface emissivity, atmospheric conditions, and solar and sensor geometry to simulate imagery across reflective and thermal wavelengths. DGGRID provides hexagonal tiling and spatial indexing, organizing the landscape into reusable, geographically referenced scenes that can be assembled into continuous regions spanning a Landsat-sized footprint. By automating data acquisition, preprocessing, and scene construction, the framework enables systematic evaluation of sensor concepts before launch.",
     "role": [
       "Built an automated scene-construction pipeline for the entire CONUS.",
       "Integrated satellite, terrain, emissivity, atmosphere, and acquisition data.",
@@ -172,7 +172,7 @@
     "dates": "",
     "summary": "Estimating atmospheric water vapor and propagating uncertainty in Landsat split-window surface-temperature products.",
     "image": "water-vapor.webp",
-    "overview": "For my Landsat Surface Temperature and Uncertainty research, I designed and implemented a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. Using MODIS and AERONET observations as reference data, I combined feature engineering and feature selection with XGBoost to derive informative predictors and improve retrieval performance. Validation showed strong agreement with independent microwave radiometer measurements. I also incorporated water-vapor-dependent uncertainty into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. This work supports potential integration into Landsat Collection 3 surface-temperature processing. Alongside algorithm development and validation, I advised an undergraduate student who contributed to the project during their co-op.",
+    "overview": "This research develops a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. MODIS and AERONET observations serve as reference data, while feature engineering and feature selection with XGBoost derive informative predictors and improve retrieval performance. Validation shows strong agreement with independent microwave radiometer measurements. Water-vapor-dependent uncertainty is incorporated into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. The work supports potential integration into Landsat Collection 3 surface-temperature processing and included supervision of an undergraduate co-op contributor.",
     "role": [
       "Supervised-learning pipeline design",
       "Feature engineering and selection",
@@ -227,7 +227,7 @@
     "dates": "Jan 2023 – Present",
     "summary": "Aligning VNIR and SWIR pushbroom imagery from separate drones through global, row-wise, and elastic correction.",
     "image": "workflow.webp",
-    "overview": "SPLASH (Spatial Elastic Harmonization) is a computer-vision framework I developed to align visible–near-infrared (VNIR) and shortwave-infrared (SWIR) hyperspectral imagery collected by pushbroom sensors on separate drones. Using framing-array multispectral imagery as a spatial reference, it combines three stages: rigid coregistration to correct global offsets, ShapeShifter correction to reduce row-wise distortions caused by platform roll, and elastic registration to refine remaining local misalignment between hyperspectral cubes. This workflow improves spatial correspondence across sensors, supporting spectral fusion and downstream analysis. I also built interactive graphical interfaces and desktop utilities to guide users through data processing, inspect alignment, and visualize results, making the methods accessible within laboratory workflows.",
+    "overview": "SPLASH (Spatial Elastic Harmonization) is a computer-vision framework for aligning visible–near-infrared (VNIR) and shortwave-infrared (SWIR) hyperspectral imagery collected by pushbroom sensors on separate drones. Using framing-array multispectral imagery as a spatial reference, it combines three stages: rigid coregistration to correct global offsets, ShapeShifter correction to reduce row-wise distortions caused by platform roll, and elastic registration to refine remaining local misalignment between hyperspectral cubes. This workflow improves spatial correspondence across sensors, supporting spectral fusion and downstream analysis. Interactive graphical interfaces and desktop utilities guide users through data processing, alignment inspection, and visualization within laboratory workflows.",
     "role": [
       "Computer-vision algorithm design",
       "Sub-pixel misalignment correction",
@@ -291,7 +291,7 @@
     "dates": "Jan 2023 – Jan 2025",
     "summary": "Estimating mixed material percentages inside forest voxels from 3D position and LiDAR intensity.",
     "image": "harvard-forest.webp",
-    "overview": "3D LiDAR Voxel Content Estimation is a deep-learning framework I designed and developed to estimate the percentage of bark, leaf, soil, and manmade material within individual forest voxels using only their 3D coordinates and LiDAR intensity. The architecture combines Kernel Point Convolutions (KPConv) with an encoder–decoder structure and skip connections to capture spatial context and perform multi-target regression of material composition. Using LiDAR data simulated in DIRSIG for Harvard Forest, the research investigates how limited observational information can reveal mixed material content within voxels, while addressing imbalanced material distributions. This work supports detailed characterization of forest structure and composition from LiDAR observations.",
+    "overview": "3D LiDAR Voxel Content Estimation is a deep-learning framework for estimating the percentage of bark, leaf, soil, and manmade material within individual forest voxels using only 3D coordinates and LiDAR intensity. The architecture combines Kernel Point Convolutions (KPConv) with an encoder–decoder structure and skip connections to capture spatial context and perform multi-target regression of material composition. Using LiDAR data simulated in DIRSIG for Harvard Forest, the research investigates how limited observational information can reveal mixed material content within voxels while addressing imbalanced material distributions. This work supports detailed characterization of forest structure and composition from LiDAR observations.",
     "role": [
       "Deep-learning architecture design",
       "Multi-target regression",
@@ -340,7 +340,7 @@
     "dates": "2017 – 2022",
     "summary": "Connecting greenhouse spectroscopy with drone-based field observations for yield prediction and crop maturity assessment.",
     "image": "workflow.webp",
-    "overview": "My Ph.D. research combined hyperspectral sensing and machine learning to model snap bean yield and assess harvest readiness, progressing from controlled greenhouse experiments to drone-based field studies. In the greenhouse, I investigated relationships between plant spectra, yield, growth stage, and pod maturity to identify informative wavelengths and useful observation periods. This included developing models for growth-stage classification and harvest scheduling. I extended this work to UAS hyperspectral imagery collected across multiple growing seasons and cultivars, developing workflows for reflectance calibration, vegetation extraction, spectral denoising, feature selection through Jostar, and predictive modeling. The field studies evaluated yield estimation and pod-size classification as complementary tools for harvest planning. Across four publications, this research established a foundation for using crop spectral information to support timely, data-driven agricultural decisions.",
+    "overview": "This doctoral research combined hyperspectral sensing and machine learning to model snap bean yield and assess harvest readiness, progressing from controlled greenhouse experiments to drone-based field studies. Greenhouse experiments examined relationships between plant spectra, yield, growth stage, and pod maturity to identify informative wavelengths and useful observation periods. The work developed models for growth-stage classification and harvest scheduling, then extended them to UAS hyperspectral imagery collected across multiple growing seasons and cultivars. Workflows included reflectance calibration, vegetation extraction, spectral denoising, feature selection through Jostar, and predictive modeling. The field studies evaluated yield estimation and pod-size classification as complementary tools for harvest planning. Across four publications, this research established a foundation for using crop spectral information to support timely, data-driven agricultural decisions.",
     "role": [
       "Greenhouse experimental design",
       "UAS and ground-truth data collection",
@@ -390,7 +390,7 @@
     "dates": "2020 – 2022",
     "summary": "Nine feature-selection algorithms for regression and classification, with a familiar Scikit-Learn-style interface.",
     "image": "logo.webp",
-    "overview": "Jostar is an open-source Python feature-selection library I developed for regression and classification tasks. It brings together nine selection algorithms, including evolutionary optimization, swarm intelligence, and sequential search, with support for single- and multi-objective approaches. Through a consistent, Scikit-Learn-style interface, users can select informative features, tune algorithm hyperparameters, generate feature rankings, and visualize model performance. Detailed documentation makes the methods accessible for both experimentation and practical workflows. The library supports applications such as identifying informative wavelengths in hyperspectral imagery, helping researchers reduce input dimensionality and investigate which features contribute most to predictive performance.",
+    "overview": "Jostar is an open-source Python feature-selection library for regression and classification tasks. It brings together nine selection algorithms, including evolutionary optimization, swarm intelligence, and sequential search, with support for single- and multi-objective approaches. Through a consistent, Scikit-Learn-style interface, users can select informative features, tune algorithm hyperparameters, generate feature rankings, and visualize model performance. Detailed documentation makes the methods accessible for both experimentation and practical workflows. The library supports applications such as identifying informative wavelengths in hyperspectral imagery, helping researchers reduce input dimensionality and investigate which features contribute most to predictive performance.",
     "role": [
       "Library design and implementation",
       "Nine feature-selection algorithms",
