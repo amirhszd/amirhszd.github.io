@@ -34,7 +34,7 @@
       {
         "src": "architecture.webp",
         "title": "Spatial-spectral-temporal masked-autoencoder architecture",
-        "caption": "Spatial-spectral-temporal masked-autoencoder architecture. Factorized spectral, spatial, and temporal attention, combined with FiLM metadata conditioning and adversarial domain learning, encourages latent representations to be invariant to collection geometry and acquisition effects while retaining the spectral state of observed materials.",
+        "caption": "Factorized spectral, spatial, and temporal attention, combined with FiLM metadata conditioning and adversarial domain learning, encourages latent representations to be invariant to collection geometry and acquisition effects while retaining the spectral state of observed materials.",
         "original": "architecture.png",
         "kind": "image",
         "show_in_gallery": true
@@ -49,14 +49,14 @@
       {
         "src": "spatial.mp4",
         "title": "Spatial reconstruction",
-        "caption": "Original images, masked inputs, and reconstructed spatial structure in selected examples.",
+        "caption": "Original images, masked inputs, and reconstructed spatial structure in selected examples from the ChronoEarth-492k dataset.",
         "original": "spatial.mp4",
         "kind": "video"
       },
       {
         "src": "spectral.mp4",
         "title": "Spectral reconstruction",
-        "caption": "Target and predicted spectra at masked pixels. The highlighted spectral interval is withheld from the surrounding context.",
+        "caption": "Target and predicted spectra at masked pixels. The highlighted spectral interval is withheld from the surrounding context in the ChronoEarth-492k dataset.",
         "original": "spectral.mp4",
         "kind": "video"
       }

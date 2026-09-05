@@ -114,7 +114,9 @@ def figure(p, f, number):
 def project_heading(p):
     hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
     css = ' logo' if p['slug'] == 'jostar' else ''
-    return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></div></div>'''
+    fit = ' style="overflow:visible"' if p['slug'] == 'sst' else ''
+    image_fit = ' style="width:100%;height:auto;max-height:none;object-fit:contain"' if p['slug'] == 'sst' else ''
+    return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"{fit}><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"{image_fit}></div></div>'''
 
 def gallery(p):
     figures = {f['src']: f for f in p['figures'] if f['src'] != p['image'] or f.get('show_in_gallery')}
