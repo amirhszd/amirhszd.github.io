@@ -39,17 +39,17 @@
         "kind": "video"
       },
       {
-        "src": "spatial-reconstruction.webp",
+        "src": "spatial-reconstruction.gif",
         "title": "Spatial reconstruction",
         "caption": "Original images, masked inputs, and reconstructed spatial structure in selected examples.",
-        "original": "spatial-reconstruction.png",
+        "original": "ezgif.com-crop-spatial.gif",
         "kind": "image"
       },
       {
-        "src": "spectral-reconstruction.webp",
+        "src": "spectral-reconstruction.gif",
         "title": "Spectral reconstruction",
         "caption": "Target and predicted spectra at masked pixels. The highlighted spectral interval is withheld from the surrounding context.",
-        "original": "spectral-reconstruction.png",
+        "original": "ezgif.com-crop-spectral.gif",
         "kind": "image"
       }
     ],
