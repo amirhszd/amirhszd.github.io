@@ -10,10 +10,10 @@
     "image": "temporal-hsti-header.png",
     "overview": "Temporal Hyperspectral Representation Learning for Biotechnology is a self-supervised framework for learning robust representations from multi-temporal hyperspectral imagery. The framework combines a masked autoencoder with factorized spectral, spatial, and temporal attention, FiLM-based metadata conditioning, and adversarial domain prediction to reduce the influence of collection geometry and acquisition effects in the latent space. Data-processing pipelines span greenhouse, UAS, and EO-1 Hyperion satellite observations, including the 4.5 TB ChronoEarth dataset of approximately 500,000 image chips across up to 235 timestamps over 17 years. The research investigates whether latent-space trajectories can distinguish healthy from stressed vegetation while suppressing observational and environmental variability; representation quality is evaluated through downstream tasks such as segmentation.",
     "role": [
-      "Architecture design",
-      "Data processing",
-      "Results analysis",
-      "Student co-supervision"
+      "Developed a self-supervised temporal hyperspectral foundation model for learning spectral, spatial, and temporal representations from large-scale remote sensing data.",
+      "Built multi-platform data pipelines spanning greenhouse, UAS, and satellite hyperspectral imagery.",
+      "Integrated metadata conditioning and adversarial learning to separate acquisition and collection-geometry effects from vegetation spectral state.",
+      "Investigating healthy vs. stressed vegetation trajectories in latent space for early detection and characterization of plant stress."
     ],
     "tags": [
       "PyTorch",
