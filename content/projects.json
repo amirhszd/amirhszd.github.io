@@ -1,14 +1,14 @@
 [
   {
     "slug": "sst",
-    "title": "Temporal Hyperspectral Representation Learning using Masked Auto Encoders",
-    "full_title": "Temporal Hyperspectral Representation Learning using Masked Auto Encoders",
+    "title": "Temporal Hyperspectral Representation Learning for Biotechnology",
+    "full_title": "Temporal Hyperspectral Representation Learning for Biotechnology",
     "category": "Self-supervised learning",
     "dates": "March 2026 – Present",
     "status": "Ongoing research",
-    "summary": "Learning spectral, spatial, and temporal representations to study vegetation stress and environmental change.",
+    "summary": "Self-supervised temporal hyperspectral representation learning for biotechnology.",
     "image": "architecture.webp",
-    "overview": "This project uses masked autoencoders to learn generalizable spectral, spatial, and temporal representations from multi-temporal hyperspectral satellite imagery. The architecture factorizes attention across the spectral, spatial, and temporal dimensions and uses masked reconstruction to learn from large volumes of unlabeled imagery. Acquisition metadata—including terrain, illumination, viewing geometry, sensor characteristics, geographic location, and acquisition time—is explicitly incorporated to separate observational effects from intrinsic surface properties. The objective is to learn a latent representation that primarily captures the spectral state of materials, enabling their evolution to be tracked through time and ultimately supporting applications such as vegetation stress detection and environmental change characterization.",
+    "overview": "Temporal Hyperspectral Representation Learning for Biotechnology is a self-supervised framework for learning robust representations from multi-temporal hyperspectral imagery. I designed a masked autoencoder with factorized spectral, spatial, and temporal attention, FiLM-based metadata conditioning, and adversarial domain prediction to reduce the influence of collection geometry and acquisition effects in the latent space. The work includes data-processing pipelines spanning greenhouse, UAS, and EO-1 Hyperion satellite observations, including the 4.5 TB ChronoEarth dataset of approximately 500,000 image chips across up to 235 timestamps over 17 years. The research investigates whether latent-space trajectories can distinguish healthy from stressed vegetation while suppressing observational and environmental variability; representation quality is evaluated through downstream tasks such as segmentation.",
     "role": [
       "Architecture design",
       "Data processing",
@@ -25,10 +25,11 @@
     "figures": [
       {
         "src": "architecture.webp",
-        "title": "Factorized attention",
-        "caption": "Spectral, spatial, and temporal attention, with metadata conditioning, a domain predictor, and masked reconstruction.",
+        "title": "Spatial-spectral-temporal masked-autoencoder architecture",
+        "caption": "Spatial-spectral-temporal masked-autoencoder architecture. Factorized spectral, spatial, and temporal attention, combined with FiLM metadata conditioning and adversarial domain learning, encourages latent representations to be invariant to collection geometry and acquisition effects while retaining the spectral state of observed materials.",
         "original": "architecture.png",
-        "kind": "image"
+        "kind": "image",
+        "show_in_gallery": true
       },
       {
         "src": "masking-v2.mp4",
@@ -100,6 +101,13 @@
         "caption": "Scene Constructor was designed and tested across reflective and thermal infrared wavelengths to support Landsat Next studies. These simulated RGB, pseudo-RGB, and thermal images illustrate its potential for applications ranging from vegetation-index calculations, such as NDVI, to developing and evaluating surface-temperature retrieval methods, including temperature–emissivity separation algorithms.",
         "original": "landsat-comparison.webp",
         "kind": "image"
+      },
+      {
+        "src": "tehran-reflectance-thermal-loop.mp4",
+        "title": "Sentinel-2 Reflectance and Simulated Thermal Imagery",
+        "caption": "Real-world Sentinel-2 10 m surface reflectance and simulated thermal imagery at 10 m over Tehran, Iran. Scene Constructor first constructs the simulated surface-reflectance product, which is then used with thermal modeling to estimate surface temperature.",
+        "original": "tehran-reflectance-thermal-loop.gif",
+        "kind": "video"
       },
       {
         "src": "terrain-view.webp",

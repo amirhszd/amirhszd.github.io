@@ -31,17 +31,21 @@ class LayoutTests(unittest.TestCase):
             self.assertNotIn('figcaption', heading)
             self.assertNotIn('figure-num', heading)
             self.assertNotIn('<a ', heading)
-            self.assertNotIn('/' + project['image'] + '"', gallery)
-            self.assertEqual(gallery.count('<figure '), len(project['figures']) - 1)
+            if any(f.get('show_in_gallery') for f in project['figures']):
+                self.assertIn('/' + project['image'] + '"', gallery)
+            else:
+                self.assertNotIn('/' + project['image'] + '"', gallery)
+            expected_figures = len(project['figures']) - 1 + sum(f.get('show_in_gallery', False) for f in project['figures'] if f['src'] == project['image'])
+            self.assertEqual(gallery.count('<figure '), expected_figures)
 
     def test_gallery_window_and_playback(self):
         project = BUILD['PROJECTS'][0]
         rendered = BUILD['gallery'](project)
-        self.assertIn('scientific-showcase-box items-3', rendered)
+        self.assertIn('scientific-showcase-box items-4', rendered)
         self.assertIn('scientific-showcase-box', rendered)
         self.assertIn('sci-card', rendered)
         self.assertIn('aria-expanded="false"', rendered)
-        self.assertEqual(rendered.count('<figure '), 3)
+        self.assertEqual(rendered.count('<figure '), 4)
         self.assertIn('figure-description', rendered)
         self.assertIn('controls autoplay muted loop playsinline', rendered)
         self.assertNotIn('figure-link', rendered)
@@ -52,10 +56,11 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(BUILD['gallery'](projects['phd']), '')
         rendered = BUILD['gallery'](projects['scene-constructor'])
         self.assertEqual(rendered.count('animation-toggle'), 2)
-        self.assertIn('scientific-showcase-box items-6', rendered)
+        self.assertIn('scientific-showcase-box items-7', rendered)
         self.assertIn('figure-num sci-num">03</span>', rendered)
         self.assertIn('figure-num sci-num">05</span>', rendered)
         self.assertIn('data-animation="../assets/projects/scene-constructor/output-v2.gif"', rendered)
+        self.assertIn('tehran-reflectance-thermal-loop.mp4', rendered)
 
     def test_scene_constructor_interactive_demo(self):
         projects = {p['slug']: p for p in BUILD['PROJECTS']}

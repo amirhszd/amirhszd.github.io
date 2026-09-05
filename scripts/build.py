@@ -117,7 +117,7 @@ def project_heading(p):
     return f'''<div class="project-heading"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"></div></div>'''
 
 def gallery(p):
-    figures = {f['src']: f for f in p['figures'] if f['src'] != p['image']}
+    figures = {f['src']: f for f in p['figures'] if f['src'] != p['image'] or f.get('show_in_gallery')}
     ordered = list(figures)
     if not ordered:
         return ''
