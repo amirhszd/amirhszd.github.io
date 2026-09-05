@@ -174,18 +174,18 @@
   },
   {
     "slug": "landsat",
-    "title": "Landsat Surface Temperature",
-    "full_title": "Landsat Surface Temperature and Uncertainty",
+    "title": "Landsat Split-Window Surface Temperature Uncertainty Framework",
+    "full_title": "Landsat Split-Window Surface Temperature Uncertainty Framework",
     "category": "Satellite calibration & validation",
     "dates": "",
     "summary": "Estimating atmospheric water vapor and propagating uncertainty in Landsat split-window surface-temperature products.",
     "image": "water-vapor.webp",
     "overview": "This research develops a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. MODIS and AERONET observations serve as reference data, while feature engineering and feature selection with XGBoost derive informative predictors and improve retrieval performance. Validation shows strong agreement with independent microwave radiometer measurements. Water-vapor-dependent uncertainty is incorporated into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. The work supports potential integration into Landsat Collection 3 surface-temperature processing and included supervision of an undergraduate co-op contributor.",
     "role": [
-      "Supervised-learning pipeline design",
-      "Feature engineering and selection",
-      "Uncertainty propagation and validation",
-      "Undergraduate co-op mentorship"
+      "Developed a Landsat 8/9 TIRS water vapor retrieval algorithm.",
+      "Validated TPW against microwave radiometer observations (R² = 0.81).",
+      "Developed a split-window surface temperature uncertainty framework.",
+      "Improved single-channel uncertainty by incorporating TPW retrieval uncertainty."
     ],
     "tags": [
       "XGBoost",
