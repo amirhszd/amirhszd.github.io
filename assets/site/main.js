@@ -61,6 +61,8 @@ document.querySelectorAll('.scientific-showcase-box').forEach(showcase => {
 
   cards.forEach(card => {
     card.addEventListener('click', event => {
+      const media = event.target.closest('.sci-media');
+      if (media?.querySelector('video')) return;
       if (event.target.closest('button, video, input, select, a')) return;
       toggle(card);
     });

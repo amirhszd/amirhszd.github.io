@@ -47,7 +47,8 @@ class LayoutTests(unittest.TestCase):
         self.assertIn('aria-expanded="false"', rendered)
         self.assertEqual(rendered.count('<figure '), 4)
         self.assertIn('figure-description', rendered)
-        self.assertIn('controls autoplay muted loop playsinline', rendered)
+        self.assertIn('autoplay muted loop playsinline', rendered)
+        self.assertNotIn('<video controls', rendered)
         self.assertNotIn('figure-link', rendered)
         self.assertNotIn('Open original', rendered)
 

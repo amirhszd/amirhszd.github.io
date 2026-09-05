@@ -100,7 +100,7 @@ def figure(p, f, number):
     kind = f.get('kind', 'image')
     extra = ''
     if kind == 'video':
-        visual = f'<video controls autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">Video playback is not supported in this browser.</video>'
+        visual = f'<video autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">Video playback is not supported in this browser.</video>'
     elif kind == 'animation':
         still = src.replace('.gif', '.webp')
         identifier = f"animation-{number}"
