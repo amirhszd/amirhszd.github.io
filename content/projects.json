@@ -75,7 +75,7 @@
   },
   {
     "slug": "scene-constructor",
-    "title": "Scene Constructor",
+    "title": "Scene Constructor: Large-Scale DIRSIG Scene Simulation",
     "full_title": "Scene Constructor: Large-Scale DIRSIG Scene Simulation",
     "category": "Physics-based simulation",
     "dates": "Jan 2024 – Present",
@@ -229,7 +229,7 @@
   },
   {
     "slug": "splash",
-    "title": "SPLASH Hyperspectral Fusion",
+    "title": "SPLASH: Multimodal Drone Hyperspectral Fusion",
     "full_title": "SPLASH: Multimodal Drone Hyperspectral Fusion",
     "category": "Computer vision",
     "dates": "Jan 2023 – Present",
@@ -293,8 +293,8 @@
   },
   {
     "slug": "lidar",
-    "title": "3D LiDAR Voxel Content",
-    "full_title": "3D LiDAR Voxel Content Estimation",
+    "title": "3D Point Cloud Voxel Content Estimation in Simulated Forests",
+    "full_title": "3D Point Cloud Voxel Content Estimation in Simulated Forests",
     "category": "3D deep learning",
     "dates": "Jan 2023 – Jan 2025",
     "summary": "Estimating mixed material percentages inside forest voxels from 3D position and LiDAR intensity.",
@@ -342,7 +342,7 @@
   },
   {
     "slug": "phd",
-    "title": "Crop Yield & Harvest Scheduling",
+    "title": "Snap Bean Yield Modeling and Harvest Scheduling",
     "full_title": "Snap Bean Yield Modeling and Harvest Scheduling",
     "category": "Ph.D. research",
     "dates": "2017 – 2022",
@@ -392,8 +392,8 @@
   },
   {
     "slug": "jostar",
-    "title": "Jostar",
-    "full_title": "Jostar: Open-Source Feature Selection",
+    "title": "Jostar: Open-Source Feature Selection Library",
+    "full_title": "Jostar: Open-Source Feature Selection Library",
     "category": "Open-source software",
     "dates": "2020 – 2022",
     "summary": "Nine feature-selection algorithms for regression and classification, with a familiar Scikit-Learn-style interface.",
