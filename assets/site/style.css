@@ -12,9 +12,10 @@
 .interactive-demo{padding:0 0 3.5rem}
 .interactive-demo-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1rem}
 .interactive-demo-heading h2{font-size:1.65rem;margin-top:.45rem}
-.interactive-demo iframe{display:block;width:100%;height:clamp(560px,72vh,760px);border:1px solid var(--line);border-radius:var(--radius);background:#081016}
-@media(max-width:680px){.project-heading{grid-template-columns:minmax(0,1fr);gap:1.5rem}.project-heading-image{width:100%;max-width:480px;justify-self:center}.project-heading h1{font-size:2.25rem}.interactive-demo-heading{align-items:start;flex-direction:column;gap:.65rem}.interactive-demo iframe{height:620px}}
+.interactive-demo iframe{display:block;width:100%;height:min(72vh,760px);min-height:560px;border:1px solid var(--line);border-radius:var(--radius);background:#081016}
+@media(max-width:680px){.project-heading{grid-template-columns:minmax(0,1fr);gap:1.5rem}.project-heading-image{width:100%;max-width:480px;justify-self:center}.project-heading h1{font-size:2.25rem}.interactive-demo-heading{align-items:start;flex-direction:column;gap:.65rem}.interactive-demo iframe{height:72vh;min-height:500px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+.pdf-figure{width:100%;height:760px;border:0;background:#fff}.fullscreen-toggle{margin:1rem 0 0}.pdf-card .fullscreen-toggle{position:absolute;top:.75rem;right:.75rem;z-index:4;margin:0}.figure:fullscreen{width:100%;height:100%;margin:0;background:#fff;padding:1rem}.figure:fullscreen .figure-display{height:calc(100% - 4rem);border:0;padding:0}.figure:fullscreen .pdf-figure{height:100%}
 .scientific-showcase-box{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;width:100%;min-height:650px;padding:1rem;border:1px solid var(--line);border-radius:12px;background:#fafafa;overflow:hidden;isolation:isolate}
 .scientific-showcase-box.items-1,.scientific-showcase-box.items-2{min-height:500px}
 .sci-card{position:relative;min-width:0;min-height:0;margin:0;border:1px solid #e5e7eb;border-radius:8px;background:#fff;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:top .35s cubic-bezier(.25,1,.5,1),left .35s cubic-bezier(.25,1,.5,1),width .35s cubic-bezier(.25,1,.5,1),height .35s cubic-bezier(.25,1,.5,1),transform .35s cubic-bezier(.25,1,.5,1),box-shadow .35s ease,opacity .3s ease;z-index:1}
