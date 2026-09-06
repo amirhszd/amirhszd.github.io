@@ -119,6 +119,8 @@ def project_heading(p):
     return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"{fit}><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"{image_fit}></div></div>'''
 
 def gallery(p):
+    if p['slug'] == 'landsat':
+        return ''
     figures = {f['src']: f for f in p['figures'] if f['src'] != p['image'] or f.get('show_in_gallery')}
     ordered = list(figures)
     if not ordered:
@@ -135,7 +137,7 @@ def interactive_demo(p):
             'Interactive Landsat pushbroom simulation showing a DIRSIG Scene Constructor acquisition over the eastern United States',
         ),
         'landsat': (
-            'Interactive Landsat Scene Explorer',
+            'Interactive Landsat Uncertainty Framework explorer',
             '../assets/projects/landsat/scene-explorer/index.html',
             'Interactive Landsat scene explorer comparing RGB imagery, surface temperature, uncertainty, and estimated total precipitable water across multiple scenes',
         ),
