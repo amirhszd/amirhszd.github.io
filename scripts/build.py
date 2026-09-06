@@ -134,6 +134,11 @@ def interactive_demo(p):
             '../assets/projects/scene-constructor/viewer/index.html',
             'Interactive Landsat pushbroom simulation showing a DIRSIG Scene Constructor acquisition over the eastern United States',
         ),
+        'landsat': (
+            'Interactive Landsat Scene Explorer',
+            '../assets/projects/landsat/scene-explorer/index.html',
+            'Interactive Landsat scene explorer comparing RGB imagery, surface temperature, uncertainty, and estimated total precipitable water across multiple scenes',
+        ),
         'lidar': (
             'Interactive 3D Voxelized Forest',
             '../assets/projects/lidar/viewer/index.html',

@@ -1,5 +1,5 @@
-Landsat Scene Explorer — unpublished working version
-Open index.html in a browser with internet for Leaflet and OpenStreetMap.
+Landsat Scene Explorer — published portfolio viewer
+Published at /projects/landsat.html and /assets/projects/landsat/scene-explorer/index.html.
 No Earth Engine login needed. All scene overlays included.
 4 scenes, 6 layers. Selected layer loads on demand.
 Temperature scale: 240–340 K; uncertainty: 0–10 K; TPW: -0.5–7 cm.
