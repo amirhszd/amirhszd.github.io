@@ -33,6 +33,22 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   });
 }
 
+document.querySelectorAll('.fullscreen-toggle').forEach(button => {
+  const figure = button.closest('.figure');
+  const sync = () => {
+    const active = document.fullscreenElement === figure;
+    button.textContent = active ? 'Exit full screen' : 'Full screen ↗';
+    button.setAttribute('aria-label', active ? 'Exit full screen' : 'Enter full screen');
+  };
+  button.addEventListener('click', async event => {
+    event.stopPropagation();
+    if (document.fullscreenElement === figure) await document.exitFullscreen();
+    else await figure.requestFullscreen();
+  });
+  document.addEventListener('fullscreenchange', sync);
+  sync();
+});
+
 document.querySelectorAll('.scientific-showcase-box').forEach(showcase => {
   const cards = [...showcase.querySelectorAll('.sci-card')];
 
