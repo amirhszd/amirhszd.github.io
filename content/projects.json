@@ -347,7 +347,7 @@
     "category": "Ph.D. research",
     "dates": "2017 – 2022",
     "summary": "Connecting greenhouse spectroscopy with drone-based field observations for yield prediction and crop maturity assessment.",
-    "image": "workflow.webp",
+    "image": "snap-bean.png",
     "overview": "This doctoral research combined hyperspectral sensing and machine learning to model snap bean yield and assess harvest readiness, progressing from controlled greenhouse experiments to drone-based field studies. Greenhouse experiments examined relationships between plant spectra, yield, growth stage, and pod maturity to identify informative wavelengths and useful observation periods. The work developed models for growth-stage classification and harvest scheduling, then extended them to UAS hyperspectral imagery collected across multiple growing seasons and cultivars. Workflows included reflectance calibration, vegetation extraction, spectral denoising, feature selection through Jostar, and predictive modeling. The field studies evaluated yield estimation and pod-size classification as complementary tools for harvest planning. Across four publications, this research established a foundation for using crop spectral information to support timely, data-driven agricultural decisions.",
     "role": [
       "Greenhouse experimental design",
@@ -381,6 +381,43 @@
     ],
     "figures": [
       {
+        "src": "snap-bean.png",
+        "title": "Snap bean growth stages",
+        "caption": "Growth stages of a common snap bean variety: budding, flowering, and pod formation.",
+        "kind": "image",
+        "show_in_gallery": true
+      },
+      {
+        "src": "gauge-final.png",
+        "title": "Sieve-gauge sampling",
+        "caption": "Farmers and growers manually sample snap bean pods using a sieve gauge to estimate pod size and determine harvest timing. This process is labor-intensive and prone to error due to spatial variability across the field. UAV-based precision agriculture can provide more accurate, field-wide estimates to optimize harvest decisions, reduce costs, and maximize profit.",
+        "kind": "image"
+      },
+      {
+        "src": "map-2019-2020.png",
+        "title": "Field-study locations",
+        "caption": "The research was conducted across two locations over two years in Upstate New York, in collaboration with Cornell plant pathologists who provided ground-truth data.",
+        "kind": "image"
+      },
+      {
+        "src": "greenhouse.png",
+        "title": "Controlled greenhouse study",
+        "caption": "We conducted an ideal-scenario controlled greenhouse study at RIT, then transferred the learned concepts and scaled the approach to field-scale UAV studies for both yield and harvest scheduling.",
+        "kind": "image"
+      },
+      {
+        "src": "field-vnir-1.jpg",
+        "title": "VNIR hyperspectral UAS collection",
+        "caption": "In-field data collection using a visible to near infrared (VNIR) hyperspectral UAS.",
+        "kind": "image"
+      },
+      {
+        "src": "field-vnir-2.jpg",
+        "title": "VNIR hyperspectral UAS collection",
+        "caption": "In-field data collection using a visible to near infrared (VNIR) hyperspectral UAS.",
+        "kind": "image"
+      },
+      {
         "src": "workflow.webp",
         "title": "From drone imagery to crop decisions",
         "caption": "Reflectance calibration, vegetation detection, spectral denoising, and Jostar feature selection support yield prediction and identification of informative wavelengths.",
@@ -397,7 +434,7 @@
     "category": "Open-source software",
     "dates": "2020 – 2022",
     "summary": "Nine feature-selection algorithms for regression and classification, with a familiar Scikit-Learn-style interface.",
-    "image": "logo.webp",
+    "image": "logo-black.png",
     "overview": "Jostar is an open-source Python feature-selection library for regression and classification tasks. It brings together nine selection algorithms, including evolutionary optimization, swarm intelligence, and sequential search, with support for single- and multi-objective approaches. Through a consistent, Scikit-Learn-style interface, users can select informative features, tune algorithm hyperparameters, generate feature rankings, and visualize model performance. Detailed documentation makes the methods accessible for both experimentation and practical workflows. The library supports applications such as identifying informative wavelengths in hyperspectral imagery, helping researchers reduce input dimensionality and investigate which features contribute most to predictive performance.",
     "role": [
       "Library design and implementation",
@@ -422,6 +459,18 @@
       }
     ],
     "figures": [
+      {
+        "src": "logo-black.png",
+        "title": "Jostar",
+        "caption": "Python feature selection for regression and classification.",
+        "kind": "image"
+      },
+      {
+        "src": "scipy2021-poster.pdf",
+        "title": "",
+        "caption": "",
+        "kind": "pdf"
+      },
       {
         "src": "logo.webp",
         "title": "Jostar",
