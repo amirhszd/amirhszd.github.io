@@ -20,7 +20,7 @@ const current=++revision,p=data.products[active],layer=scene.layers[active];
 if(pending){map.removeLayer(pending);pending=null;}
 if(overlay){map.removeLayer(overlay);overlay=null;}
 $('story-step').textContent=`STEP ${productIndex+1} OF ${sequence.length}`;$('title').textContent=p.label;$('description').textContent=descriptions[active];
-const sceneLines=[scene.id,date(scene),`Landsat ${scene.id.startsWith('LC08')?'8':'9'}`,`Path ${scene.pathrow.slice(0,3)} / Row ${scene.pathrow.slice(3)}`];
+const sceneLines=[date(scene),`Landsat ${scene.id.startsWith('LC08')?'8':'9'}`,`Path ${scene.pathrow.slice(0,3)} / Row ${scene.pathrow.slice(3)}`];
 $('scene-id').replaceChildren(...sceneLines.flatMap((line,index)=>index?[document.createElement('br'),line]:[line]));
 $('previous').disabled=productIndex===0;$('next').disabled=productIndex===sequence.length-1;
 $('legend-title').textContent=p.unit?`${p.label} (${p.unit})`:'True color · RGB';
