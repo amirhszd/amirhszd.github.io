@@ -101,6 +101,9 @@ def figure(p, f, number):
     extra = ''
     if kind == 'video':
         visual = f'<video autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">Video playback is not supported in this browser.</video>'
+    elif kind == 'pdf':
+        visual = f'<iframe class="pdf-figure" src="{src}" title="Jostar poster"></iframe>'
+        extra = '<button class="button fullscreen-toggle" type="button" aria-label="Enter full screen">Full screen ↗</button>'
     elif kind == 'animation':
         still = src.replace('.gif', '.webp')
         identifier = f"animation-{number}"
@@ -108,8 +111,9 @@ def figure(p, f, number):
         extra = f'<button hidden class="button animation-toggle" type="button" aria-controls="{identifier}" aria-pressed="false">Play animation</button>'
     else:
         visual = f'<img src="{src}" alt="{E(f["caption"])}" loading="lazy" decoding="async">'
-    css = 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
-    return f'''<figure class="figure sci-card {css}" tabindex="0" aria-expanded="false"><div class="figure-display sci-media">{visual}</div>{extra}<figcaption class="sci-caption"><span class="figure-num sci-num">{number:02d}</span><div class="figure-copy"><h3>{E(f['title'])}</h3><p class="figure-description sci-desc">{E(f['caption'])}</p></div></figcaption></figure>'''
+    css = 'pdf-card' if kind == 'pdf' else 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
+    caption = '' if kind == 'pdf' else f'''<figcaption class="sci-caption"><span class="figure-num sci-num">{number:02d}</span><div class="figure-copy"><h3>{E(f['title'])}</h3><p class="figure-description sci-desc">{E(f['caption'])}</p></div></figcaption>'''
+    return f'''<figure class="figure sci-card {css}" tabindex="0" aria-expanded="false"><div class="figure-display sci-media">{visual}</div>{extra}{caption}</figure>'''
 
 def project_heading(p):
     hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
