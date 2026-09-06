@@ -150,7 +150,7 @@ def interactive_demo(p):
     title, url, description = demos[p['slug']]
     return f'''<section class="interactive-demo" aria-labelledby="interactive-demo-title">
 <div class="interactive-demo-heading"><div><p class="eyebrow">Interactive demonstration</p><h2 id="interactive-demo-title">{E(title)}</h2></div><a class="text-link" href="{E(url)}" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
-<iframe src="{E(url)}" title="{E(description)}" aria-describedby="interactive-demo-title" loading="eager" allowfullscreen></iframe>
+<iframe src="{E(url)}" title="{E(title)}" loading="eager" allowfullscreen></iframe>
 </section>'''
 
 for i,p in enumerate(PROJECTS):
