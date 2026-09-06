@@ -68,13 +68,16 @@ class LayoutTests(unittest.TestCase):
         rendered = BUILD['interactive_demo'](projects['scene-constructor'])
         self.assertIn('<iframe ', rendered)
         self.assertIn('viewer/index.html', rendered)
+        landsat = BUILD['interactive_demo'](projects['landsat'])
+        self.assertIn('Interactive Landsat Scene Explorer', landsat)
+        self.assertIn('../assets/projects/landsat/scene-explorer/index.html', landsat)
         lidar = BUILD['interactive_demo'](projects['lidar'])
         self.assertIn('Interactive 3D Voxelized Forest', lidar)
         self.assertIn('../assets/projects/lidar/viewer/index.html', lidar)
         self.assertEqual(BUILD['interactive_demo'](projects['sst']), '')
 
     def test_interactive_demo_follows_overview(self):
-        for slug in ('scene-constructor', 'lidar'):
+        for slug in ('scene-constructor', 'landsat', 'lidar'):
             page = (ROOT / 'projects' / f'{slug}.html').read_text()
             self.assertLess(page.index('detail-overview'), page.index('interactive-demo'))
 
