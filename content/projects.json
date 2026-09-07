@@ -24,7 +24,7 @@
     "links": [],
     "figures": [
       {
-        "src": "temporal-hsti-header.png",
+        "src": "temporal_hsti_header.png",
         "title": "Healthy and infected latent trajectories",
         "caption": "This research leverages large volumes of available remote sensing data and self-supervised learning to distinguish healthy plant trajectories from disease- or infection-induced trajectories in the latent representation space.",
         "original": "temporal_hsti_header(1).png",
