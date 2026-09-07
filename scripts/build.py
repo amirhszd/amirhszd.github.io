@@ -74,7 +74,6 @@ home_body = f'''
 <p class="lead">Understanding our world through remote sensing, machine learning, and physical simulation.</p>
 <p class="affiliation">Research Assistant Professor<br>Rochester Institute of Technology</p>
 <div class="links"><a class="button primary" href="#research">Explore research ↓</a>{anchor(SCHOLAR,'Google Scholar ↗','button')}</div></div>
-<figure class="hero-visual"><img src="assets/projects/lidar/harvard-forest.webp" width="1536" height="1024" alt="Aerial view of the simulated Harvard Forest landscape" fetchpriority="high"><figcaption><span>Harvard Forest · DIRSIG simulation</span><a href="projects/lidar.html">View project ↗</a></figcaption></figure>
 </section>
 <section id="research" class="section"><div class="wrap">
 <div class="section-heading"><div><p class="eyebrow">Research & software</p><h2>Selected projects</h2></div><p>From learning representations of Earth to simulating the sensors that observe it.</p></div>
