@@ -6,6 +6,11 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = json.loads((ROOT / 'content/projects.json').read_text())
+# The homepage sequence is curated independently of the detail-page sequence.
+HOME_PROJECTS = [
+    next(p for p in PROJECTS if p['slug'] == slug)
+    for slug in ('sst', 'scene-constructor', 'landsat', 'lidar', 'splash', 'phd', 'jostar')
+]
 EARLIER = json.loads((ROOT / 'content/earlier-research.json').read_text())
 E = html.escape
 SCHOLAR = 'https://scholar.google.com/citations?user=SlShE9EAAAAJ&hl=en'
@@ -77,7 +82,7 @@ home_body = f'''
 </section>
 <section id="research" class="section"><div class="wrap">
 <div class="section-heading"><div><p class="eyebrow">Research & software</p><h2>Selected projects</h2></div><p>From learning representations of Earth to simulating the sensors that observe it.</p></div>
-<div class="project-grid">{''.join(card(p,i+1) for i,p in enumerate(PROJECTS))}</div>
+<div class="project-grid">{''.join(card(p,i+1) for i,p in enumerate(HOME_PROJECTS))}</div>
 <div class="links"><a class="button" href="research.html">Earlier research & posters ↗</a></div>
 </div></section>
 <section id="publications" class="section pub-section"><div class="wrap">
