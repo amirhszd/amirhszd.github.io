@@ -181,7 +181,7 @@
     "summary": "Estimating atmospheric water vapor and propagating uncertainty in Landsat split-window surface-temperature products.",
     "image": "landsat-header.png",
     "gallery_exclude": "water-vapor.webp",
-    "overview": "This research develops a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. MODIS and AERONET observations serve as reference data, while feature engineering and feature selection with XGBoost derive informative predictors and improve retrieval performance. Validation shows strong agreement with independent microwave radiometer measurements. Water-vapor-dependent uncertainty is incorporated into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. The work supports potential integration into Landsat Collection 3 surface-temperature processing and included supervision of an undergraduate co-op contributor.",
+    "overview": "This research develops a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. MODIS and AERONET observations serve as reference data, while feature engineering and feature selection with XGBoost derive informative predictors and improve retrieval performance. Validation shows strong agreement with independent microwave radiometer measurements. Water-vapor-dependent uncertainty is incorporated into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. The work supports potential integration into Landsat Collection 3 surface-temperature processing.",
     "role": [
       "Developed a Landsat 8/9 TIRS water vapor retrieval algorithm.",
       "Validated TPW against microwave radiometer observations (R² = 0.81).",
@@ -300,11 +300,12 @@
     "dates": "Jan 2023 – Jan 2025",
     "summary": "Estimating mixed material percentages inside forest voxels from 3D position and LiDAR intensity.",
     "image": "harvard-forest.webp",
-    "overview": "3D LiDAR Voxel Content Estimation is a deep-learning framework for estimating the percentage of bark, leaf, soil, and manmade material within individual forest voxels using only 3D coordinates and LiDAR intensity. The architecture combines Kernel Point Convolutions (KPConv) with an encoder–decoder structure and skip connections to capture spatial context and perform multi-target regression of material composition. Using LiDAR data simulated in DIRSIG for Harvard Forest, the research investigates how limited observational information can reveal mixed material content within voxels while addressing imbalanced material distributions. This work supports detailed characterization of forest structure and composition from LiDAR observations.",
+    "overview": "3D LiDAR Voxel Content Estimation is a deep-learning framework for estimating the percentage of bark, leaf, soil, and manmade material within individual forest voxels using only 3D coordinates and LiDAR intensity. The architecture combines Kernel Point Convolutions (KPConv) with an encoder–decoder structure and skip connections to capture spatial context and perform multi-target regression of material composition. Using LiDAR data simulated in DIRSIG for Harvard Forest, the research investigates how limited observational information can reveal mixed material content within voxels while addressing imbalanced material distributions.",
     "role": [
-      "Deep-learning architecture design",
-      "Multi-target regression",
-      "Modeling imbalanced material distributions"
+      "Estimated bark, leaf, soil, and other fractions from voxelized LiDAR.",
+      "Developed an imbalance-aware point-cloud deep learning model.",
+      "Benchmarked against state-of-the-art deep learning models.",
+      "Performed sensitivity and ablation studies."
     ],
     "tags": [
       "KPConv",
@@ -329,8 +330,8 @@
       },
       {
         "src": "architecture.webp",
-        "title": "From LiDAR observations to material fractions",
-        "caption": "A KPConv encoder–decoder with skip connections predicts four material-content channels from position and intensity.",
+        "title": "From voxelized LiDAR observations to content estimation",
+        "caption": "An encoder–decoder model predicts four voxel-content fractions from each voxel’s position and intensity.",
         "original": "architecture.pdf",
         "kind": "image"
       }
@@ -349,12 +350,11 @@
     "dates": "2017 – 2022",
     "summary": "Connecting greenhouse spectroscopy with drone-based field observations for yield prediction and crop maturity assessment.",
     "image": "snap-bean.png",
-    "overview": "This doctoral research combined hyperspectral sensing and machine learning to model snap bean yield and assess harvest readiness, progressing from controlled greenhouse experiments to drone-based field studies. Greenhouse experiments examined relationships between plant spectra, yield, growth stage, and pod maturity to identify informative wavelengths and useful observation periods. The work developed models for growth-stage classification and harvest scheduling, then extended them to UAS hyperspectral imagery collected across multiple growing seasons and cultivars. Workflows included reflectance calibration, vegetation extraction, spectral denoising, feature selection through Jostar, and predictive modeling. The field studies evaluated yield estimation and pod-size classification as complementary tools for harvest planning. Across four publications, this research established a foundation for using crop spectral information to support timely, data-driven agricultural decisions.",
+    "overview": "This doctoral research combined hyperspectral sensing and machine learning to model snap bean yield and assess harvest readiness, progressing from controlled greenhouse experiments to drone-based field studies. Greenhouse experiments examined relationships between plant spectra, yield, growth stage, and pod maturity to identify informative wavelengths and useful observation periods. The work developed models for growth-stage classification and harvest scheduling, then extended them to UAS hyperspectral imagery collected across multiple growing seasons and cultivars. Workflows included reflectance calibration, vegetation extraction, spectral denoising, feature selection through Jostar, and predictive modeling. The field studies evaluated yield estimation and pod-size classification. Across four publications, this research established a foundation for using crop spectral information to support timely, data-driven agricultural decisions.",
     "role": [
-      "Greenhouse experimental design",
-      "UAS and ground-truth data collection",
-      "Hyperspectral calibration and processing",
-      "Yield and maturity modeling"
+      "Developed hyperspectral methods for early yield and harvest forecasting.",
+      "Designed greenhouse spectroscopy experiments and scaled them to UAV field studies.",
+      "Built machine learning and feature-selection pipelines for hyperspectral analysis."
     ],
     "tags": [
       "Hyperspectral imaging",
