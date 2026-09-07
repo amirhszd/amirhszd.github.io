@@ -24,7 +24,7 @@
     "links": [],
     "figures": [
       {
-        "src": "temporal_hsti_header.png",
+        "src": "temporal-hsti-header.png",
         "title": "Healthy and infected latent trajectories",
         "caption": "This research leverages large volumes of available remote sensing data and self-supervised learning to distinguish healthy plant trajectories from disease- or infection-induced trajectories in the latent representation space.",
         "original": "temporal_hsti_header(1).png",
@@ -179,7 +179,8 @@
     "category": "Satellite calibration & validation",
     "dates": "",
     "summary": "Estimating atmospheric water vapor and propagating uncertainty in Landsat split-window surface-temperature products.",
-    "image": "Amir-4.png",
+    "image": "landsat-header.png",
+    "gallery_exclude": "water-vapor.webp",
     "overview": "This research develops a supervised-learning pipeline to estimate atmospheric total precipitable water at each pixel from Landsat thermal bands 10 and 11, addressing the absence of dedicated water-vapor absorption bands. MODIS and AERONET observations serve as reference data, while feature engineering and feature selection with XGBoost derive informative predictors and improve retrieval performance. Validation shows strong agreement with independent microwave radiometer measurements. Water-vapor-dependent uncertainty is incorporated into a split-window surface-temperature uncertainty framework through metrological uncertainty propagation, advancing the previous single-channel methodology. The work supports potential integration into Landsat Collection 3 surface-temperature processing and included supervision of an undergraduate co-op contributor.",
     "role": [
       "Developed a Landsat 8/9 TIRS water vapor retrieval algorithm.",
@@ -434,7 +435,8 @@
     "category": "Open-source software",
     "dates": "2020 – 2022",
     "summary": "Nine feature-selection algorithms for regression and classification, with a familiar Scikit-Learn-style interface.",
-    "image": "logo-black.png",
+    "image": "logo-black.jpeg",
+    "gallery_exclude": "logo-black.png",
     "overview": "Jostar is an open-source Python feature-selection library for regression and classification tasks. It brings together nine selection algorithms, including evolutionary optimization, swarm intelligence, and sequential search, with support for single- and multi-objective approaches. Through a consistent, Scikit-Learn-style interface, users can select informative features, tune algorithm hyperparameters, generate feature rankings, and visualize model performance. Detailed documentation makes the methods accessible for both experimentation and practical workflows. The library supports applications such as identifying informative wavelengths in hyperspectral imagery, helping researchers reduce input dimensionality and investigate which features contribute most to predictive performance.",
     "role": [
       "Library design and implementation",
@@ -460,7 +462,7 @@
     ],
     "figures": [
       {
-        "src": "logo_black.jpeg",
+        "src": "logo-black.png",
         "title": "Jostar",
         "caption": "Python feature selection for regression and classification.",
         "kind": "image"
