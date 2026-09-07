@@ -460,7 +460,7 @@
     ],
     "figures": [
       {
-        "src": "logo-black.png",
+        "src": "logo_black.jpeg",
         "title": "Jostar",
         "caption": "Python feature selection for regression and classification.",
         "kind": "image"
