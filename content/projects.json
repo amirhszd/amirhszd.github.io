@@ -467,16 +467,9 @@
       },
       {
         "src": "jostar-poster.png",
-        "title": "",
+        "title": "Scipy 2021 Jostar Poster",
         "caption": "",
         "kind": "poster"
-      },
-      {
-        "src": "logo.webp",
-        "title": "Jostar",
-        "caption": "Python feature selection for regression and classification.",
-        "original": "logo.png",
-        "kind": "image"
       },
       {
         "src": "example.gif",
