@@ -35,10 +35,13 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 document.querySelectorAll('.fullscreen-toggle').forEach(button => {
   const figure = button.closest('.figure');
+  const pdf = figure.querySelector('.pdf-figure');
+  const pdfSource = pdf?.getAttribute('src');
   const sync = () => {
     const active = document.fullscreenElement === figure;
     button.textContent = active ? 'Exit full screen' : 'Full screen ↗';
     button.setAttribute('aria-label', active ? 'Exit full screen' : 'Enter full screen');
+    if (pdf && pdfSource) pdf.src = `${pdfSource.split('#')[0]}#page=1&zoom=page-width`;
   };
   button.addEventListener('click', async event => {
     event.stopPropagation();
