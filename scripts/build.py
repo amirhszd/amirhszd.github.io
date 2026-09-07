@@ -102,7 +102,7 @@ def figure(p, f, number):
     if kind == 'video':
         visual = f'<video autoplay muted loop playsinline preload="metadata" aria-label="{E(f["title"])}"><source src="{src}" type="video/mp4">Video playback is not supported in this browser.</video>'
     elif kind == 'pdf':
-        visual = f'<iframe class="pdf-figure" src="{src}" title="Jostar poster"></iframe>'
+        visual = f'<iframe class="pdf-figure" src="{src}#page=1&zoom=page-width" title="Jostar poster"></iframe>'
         extra = '<button class="button fullscreen-toggle" type="button" aria-label="Enter full screen">Full screen ↗</button>'
     elif kind == 'animation':
         still = src.replace('.gif', '.webp')
