@@ -73,7 +73,7 @@ home_body = f'''
 <div><p class="eyebrow">Earth observation & applied AI</p><h1 id="intro-title">Amir<br>Hassanzadeh<span style="color:var(--accent)">.</span></h1>
 <p class="lead">Understanding our world through remote sensing, machine learning, and physical simulation.</p>
 <p class="affiliation">Research Assistant Professor<br>Rochester Institute of Technology</p>
-<div class="links"><a class="button primary" href="#research">Explore research ↓</a>{anchor(SCHOLAR,'Google Scholar ↗','button')}</div></div>
+</div>
 </section>
 <section id="research" class="section"><div class="wrap">
 <div class="section-heading"><div><p class="eyebrow">Research & software</p><h2>Selected projects</h2></div><p>From learning representations of Earth to simulating the sensors that observe it.</p></div>
