@@ -123,16 +123,18 @@ def figure(p, f, number):
     return f'''<figure class="figure sci-card {css}" tabindex="0" aria-expanded="false"><div class="figure-display sci-media">{visual}</div>{extra}{caption}</figure>'''
 
 def project_heading(p):
-    hero = next((f for f in p['figures'] if f['src'] == p['image']), {})
+    hero_image = p.get('header_image', p['image'])
+    hero = next((f for f in p['figures'] if f['src'] == hero_image), {})
     css = ' logo' if p['slug'] == 'jostar' else ''
     fit = ' style="overflow:visible"' if p['slug'] == 'sst' else ''
     image_fit = ' style="width:100%;height:auto;max-height:none;object-fit:contain"' if p['slug'] == 'sst' else ''
-    return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"{fit}><img src="../assets/projects/{p['slug']}/{E(p['image'])}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"{image_fit}></div></div>'''
+    return f'''<div class="project-heading project-heading-{E(p['slug'])}"><h1>{E(p['full_title'])}</h1><div class="project-heading-image{css}"{fit}><img src="../assets/projects/{p['slug']}/{E(hero_image)}" alt="{E(hero.get('title', p['title']))}" fetchpriority="high" decoding="async"{image_fit}></div></div>'''
 
 def gallery(p):
     if p['slug'] == 'landsat':
         return ''
-    figures = {f['src']: f for f in p['figures'] if f['src'] != p['image'] or f.get('show_in_gallery')}
+    excluded = p.get('gallery_exclude', p['image'])
+    figures = {f['src']: f for f in p['figures'] if f['src'] != excluded or f.get('show_in_gallery')}
     ordered = list(figures)
     if not ordered:
         return ''
