@@ -115,7 +115,7 @@ def figure(p, f, number):
     else:
         visual = f'<img src="{src}" alt="{E(f["caption"])}" loading="lazy" decoding="async">'
     css = 'poster-card' if kind == 'poster' else 'pdf-card' if kind == 'pdf' else 'logo' if f['src'] == 'logo.webp' else 'narrow' if f['src'] == 'interface.webp' else ''
-    caption = '' if kind in ('pdf', 'poster') else f'''<figcaption class="sci-caption"><span class="figure-num sci-num">{number:02d}</span><div class="figure-copy"><h3>{E(f['title'])}</h3><p class="figure-description sci-desc">{E(f['caption'])}</p></div></figcaption>'''
+    caption = '' if kind == 'pdf' else f'''<figcaption class="sci-caption"><span class="figure-num sci-num">{number:02d}</span><div class="figure-copy"><h3>{E(f['title'])}</h3><p class="figure-description sci-desc">{E(f['caption'])}</p></div></figcaption>'''
     return f'''<figure class="figure sci-card {css}" tabindex="0" aria-expanded="false"><div class="figure-display sci-media">{visual}</div>{extra}{caption}</figure>'''
 
 def project_heading(p):
