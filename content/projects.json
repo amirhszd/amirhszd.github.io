@@ -424,6 +424,12 @@
         "caption": "Reflectance calibration, vegetation detection, spectral denoising, and Jostar feature selection support yield prediction and identification of informative wavelengths.",
         "original": "workflow.png",
         "kind": "image"
+      },
+      {
+        "src": "agu21poster.jpg",
+        "title": "AGU 2021 poster presentation",
+        "caption": "AGU 2021 poster presentation. Showcasing the complete workflow and processing pipeline, from hyperspectral data calibration to vegetation extraction, PCA-based noise removal, feature selection, and modeling",
+        "kind": "image"
       }
     ],
     "figure_rows": []
