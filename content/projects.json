@@ -170,7 +170,14 @@
       [
         "output-v2.gif"
       ]
-    ]
+    ],
+    "news": {
+      "eyebrow": "In the news",
+      "title": "NASA awards RIT $2.2 million to extend Landsat satellite-program collaboration",
+      "text": "RIT News highlights NASA's new award supporting Landsat 10 sensor trade studies. The collaboration uses large-scale synthetic scenes developed with DIRSIG to generate proxy data for evaluating sensor design and image quality before launch.",
+      "url": "https://www.rit.edu/news/nasa-awards-rit-22-million-extend-landsat-satellite-program-collaboration",
+      "link_label": "Read the RIT News story"
+    }
   },
   {
     "slug": "landsat",
