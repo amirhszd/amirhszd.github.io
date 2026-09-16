@@ -168,6 +168,15 @@ def interactive_demo(p):
 <iframe src="{E(url)}" title="{E(description)}" loading="eager" allowfullscreen></iframe>
 </section>'''
 
+def news(p):
+    item = p.get('news')
+    if not item:
+        return ''
+    return f'''<section class="project-news" aria-labelledby="project-news-title">
+<p class="eyebrow">{E(item.get('eyebrow', 'In the news'))}</p>
+<div class="project-news-card"><h2 id="project-news-title">{E(item['title'])}</h2><p>{E(item['text'])}</p><a class="text-link" href="{E(item['url'])}" target="_blank" rel="noopener noreferrer">{E(item.get('link_label', 'Read the story'))} ↗</a></div>
+</section>'''
+
 for i,p in enumerate(PROJECTS):
     meta = ''.join(f'<span>{E(v)}</span>' for v in [p['dates'],p.get('status','')] if v)
     links = ''.join(anchor(x['url'],x['label']+' ↗','button') for x in p['links'])
@@ -177,6 +186,7 @@ for i,p in enumerate(PROJECTS):
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>Contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
 {interactive_demo(p)}
 {gallery(p)}
+{news(p)}
 <div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''
     path=f"projects/{p['slug']}.html"
     (ROOT/path).write_text(shell(p['full_title']+' | Amir Hassanzadeh',p['summary'],body,path))
