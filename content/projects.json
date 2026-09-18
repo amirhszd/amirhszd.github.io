@@ -204,15 +204,15 @@
     ],
     "links": [
       {
-        "label": "Main paper · preprint",
-        "url": "https://arxiv.org/pdf/2511.12729"
+        "label": "Main paper · Remote Sensing of Environment",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S003442572600430X?via%3Dihub"
       },
       {
         "label": "Related RSE paper",
         "url": "https://www.sciencedirect.com/science/article/pii/S0034425726003330"
       }
     ],
-    "publication_note": "Main manuscript: Remote Sensing of Environment, in review.",
+    "publication_note": "Published in Remote Sensing of Environment.",
     "figures": [
       {
         "src": "water-vapor.webp",
