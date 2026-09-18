@@ -53,7 +53,7 @@ def card(p, index):
 
 PUBLICATIONS = [
     ('2026','Deep Imbalanced Multi-Target Regression: 3D Point Cloud Voxel Content Estimation in Simulated Forests','IEEE Transactions on Geoscience and Remote Sensing','https://arxiv.org/pdf/2511.12740'),
-    ('2026','Development of an Uncertainty Workflow to Support Landsat TIRS Split Window-Derived Surface Temperature Products','Remote Sensing of Environment · In review · Preprint','https://arxiv.org/pdf/2511.12729'),
+    ('2026','Development of an Uncertainty Workflow to Support Landsat TIRS Split Window-Derived Surface Temperature Products','Remote Sensing of Environment','https://www.sciencedirect.com/science/article/abs/pii/S003442572600430X?via%3Dihub'),
     ('2025','Through the Perspective of LiDAR: A Feature-Enriched and Uncertainty-Aware Annotation Pipeline for Terrestrial Point Cloud Segmentation','Preprint','https://arxiv.org/abs/2510.06582'),
     ('2025','Enhancing snap bean yield prediction through synergistic integration of UAS-Based LiDAR and multispectral imagery','Computers and Electronics in Agriculture · 230, 109923',''),
     ('2023','Forecasting Table Beet Root Yield Using Spectral and Textural Features from Hyperspectral UAS Imagery','Remote Sensing · 15(3), 794',''),
