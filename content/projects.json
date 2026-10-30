@@ -177,6 +177,15 @@
       "text": "RIT News highlights NASA's new award supporting Landsat 10 sensor trade studies. The collaboration uses large-scale synthetic scenes developed with DIRSIG to generate proxy data for evaluating sensor design and image quality before launch.",
       "url": "https://www.rit.edu/news/nasa-awards-rit-22-million-extend-landsat-satellite-program-collaboration",
       "link_label": "Read the RIT News story"
+    },
+    "talk": {
+      "title": "Scene Constructor and digital twins for remote sensing",
+      "video_title": "Dr. Amir Hassanzadeh Research Presentation",
+      "host": "RIT Imaging Science",
+      "duration": "48:58",
+      "url": "https://www.youtube.com/watch?v=9NXmoSJ6D7s",
+      "embed_url": "https://www.youtube-nocookie.com/embed/9NXmoSJ6D7s",
+      "description": "In this RIT research presentation, I introduce DIRSIG Scene Constructor and propose using the tool to create physics-based digital twins that support self-supervised learning for remote sensing."
     }
   },
   {

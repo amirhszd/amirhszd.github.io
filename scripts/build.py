@@ -41,7 +41,7 @@ def shell(title, description, body, path='index.html'):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script>try{{const t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=12"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=13"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}"><strong>Amir</strong> Hassanzadeh</a>
@@ -87,6 +87,20 @@ def publications(selected=False):
         out += f'<li><span class="pub-year">{year}</span><div><h3 class="pub-title">{heading}</h3><p class="pub-venue">{E(venue)}</p><div class="pub-actions">{actions}</div></div></li>'
     return out
 
+def research_talk(project, homepage=False):
+    talk = project.get('talk')
+    if not talk:
+        return ''
+    section_id = 'featured-talk' if homepage else 'research-presentation'
+    section_class = 'academic-section' if homepage else 'research-talk'
+    heading = 'featured talk' if homepage else 'research presentation'
+    related = anchor('projects/scene-constructor.html', 'Explore Scene Constructor →', 'text-link') if homepage else ''
+    return f'''<section id="{section_id}" class="{section_class}" aria-labelledby="{section_id}-title">
+<div class="section-heading"><h2 id="{section_id}-title">{heading}</h2><span class="talk-meta">{E(talk['host'])} · {E(talk['duration'])}</span></div>
+<div class="talk-layout"><div class="talk-video"><iframe src="{E(talk['embed_url'])}" title="{E(talk['video_title'])}" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+<div class="talk-copy"><h3>{E(talk['title'])}</h3><p>{E(talk['description'])}</p><div class="links">{anchor(talk['url'], 'Watch on YouTube ↗', 'button')}{related}</div></div></div>
+</section>'''
+
 home_body = f'''
 <div class="wrap academic-home">
 <section id="about" class="profile" aria-labelledby="intro-title">
@@ -99,6 +113,7 @@ home_body = f'''
 </section>
 <section id="contact" class="academic-contact" aria-label="Contact and professional profiles"><div class="social-links">{anchor('mailto:'+EMAIL,'Email')}{anchor(SCHOLAR,'Google Scholar')}{anchor('https://github.com/amirhszd','GitHub')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn')}{anchor('assets/docs/AmirHassanzadeh_CV.pdf','CV ↓')}</div><p>Research, collaboration, and opportunities: <a href="mailto:{EMAIL}">{EMAIL}</a></p></section>
 <section id="research" class="academic-section"><div class="section-heading"><h2>selected projects</h2><a href="projects.html" class="text-link">all projects →</a></div><div class="project-grid featured-grid">{''.join(card(p,i+1) for i,p in enumerate(HOME_PROJECTS[:3]))}</div></section>
+{research_talk(next(p for p in PROJECTS if p['slug'] == 'scene-constructor'), homepage=True)}
 <section id="publications" class="academic-section"><div class="section-heading"><h2>selected publications</h2><a href="publications.html" class="text-link">all publications →</a></div><ol class="pub-list">{publications(selected=True)}</ol></section>
 </div>'''
 (ROOT / 'index.html').write_text(shell('Amir Hassanzadeh | Remote Sensing & Machine Learning', 'Research Professor at RIT working in remote sensing, machine learning, computer vision, and physics-based simulation.', home_body))
@@ -207,6 +222,7 @@ for i,p in enumerate(PROJECTS):
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
     body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../projects.html">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>Contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
+{research_talk(p)}
 {interactive_demo(p)}
 {gallery(p)}
 {news(p)}
