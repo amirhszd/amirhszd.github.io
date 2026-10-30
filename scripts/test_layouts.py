@@ -35,7 +35,9 @@ class LayoutTests(unittest.TestCase):
                 self.assertIn('/' + project['image'] + '"', gallery)
             else:
                 self.assertNotIn('/' + project['image'] + '"', gallery)
-            expected_figures = len(project['figures']) - 1 + sum(f.get('show_in_gallery', False) for f in project['figures'] if f['src'] == project['image'])
+            excluded = project.get('gallery_exclude', project['image'])
+            expected_figures = 0 if project['slug'] == 'landsat' else sum(
+                f['src'] != excluded or bool(f.get('show_in_gallery')) for f in project['figures'])
             self.assertEqual(gallery.count('<figure '), expected_figures)
 
     def test_gallery_window_and_playback(self):
@@ -54,7 +56,9 @@ class LayoutTests(unittest.TestCase):
 
     def test_animation_controls_and_empty_gallery(self):
         projects = {p['slug']: p for p in BUILD['PROJECTS']}
-        self.assertEqual(BUILD['gallery'](projects['phd']), '')
+        # Landsat figures are presented through the dedicated scene explorer.
+        self.assertEqual(BUILD['gallery'](projects['landsat']), '')
+        self.assertIn('scientific-showcase-box', BUILD['gallery'](projects['phd']))
         rendered = BUILD['gallery'](projects['scene-constructor'])
         self.assertEqual(rendered.count('animation-toggle'), 2)
         self.assertIn('scientific-showcase-box items-7', rendered)
@@ -69,7 +73,7 @@ class LayoutTests(unittest.TestCase):
         self.assertIn('<iframe ', rendered)
         self.assertIn('viewer/index.html', rendered)
         landsat = BUILD['interactive_demo'](projects['landsat'])
-        self.assertIn('Interactive Landsat Scene Explorer', landsat)
+        self.assertIn('Interactive Landsat Uncertainty Framework explorer', landsat)
         self.assertIn('../assets/projects/landsat/scene-explorer/index.html', landsat)
         lidar = BUILD['interactive_demo'](projects['lidar'])
         self.assertIn('Interactive 3D Voxelized Forest', lidar)
@@ -104,7 +108,7 @@ class LayoutTests(unittest.TestCase):
         self.assertIn("event.key === 'Escape'", script)
 
     def test_local_references(self):
-        for page in [ROOT/'index.html', ROOT/'research.html', *sorted((ROOT/'projects').glob('*.html'))]:
+        for page in [*sorted(ROOT.glob('*.html')), *sorted((ROOT/'projects').glob('*.html'))]:
             parser = References()
             parser.feed(page.read_text())
             for url in parser.urls:
@@ -112,6 +116,19 @@ class LayoutTests(unittest.TestCase):
                 if parsed.scheme or parsed.netloc or not parsed.path:
                     continue
                 self.assertTrue((page.parent/unquote(parsed.path)).exists(), f'{page.name}: {url}')
+
+    def test_academic_navigation_and_content(self):
+        home = (ROOT / 'index.html').read_text()
+        self.assertIn('assets/site/headshot.jpeg', home)
+        self.assertEqual(home.count('class="pub-year"'), 3)
+        self.assertEqual((ROOT / 'publications.html').read_text().count('class="pub-year"'), len(BUILD['PUBLICATIONS']))
+        self.assertEqual((ROOT / 'projects.html').read_text().count('class="project-card"'), len(BUILD['PROJECTS']))
+        for name in ('index.html', 'publications.html', 'projects.html', 'cv.html', 'teaching.html'):
+            page = (ROOT / name).read_text()
+            self.assertIn(f'<a href="{name}" aria-current="page">', page)
+            self.assertIn('class="theme-toggle"', page)
+        self.assertIn('assets/docs/AmirHassanzadeh_CV.pdf', (ROOT / 'cv.html').read_text())
+        self.assertIn('Applications of Machine Learning in Remote Sensing', (ROOT / 'teaching.html').read_text())
 
 
 if __name__ == '__main__':

@@ -1,4 +1,20 @@
 document.documentElement.classList.add('js');
+const themeButton = document.querySelector('.theme-toggle');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+const isDark = () => document.documentElement.dataset.theme
+  ? document.documentElement.dataset.theme === 'dark' : systemTheme.matches;
+const syncThemeButton = () => themeButton?.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme');
+if (themeButton) {
+  themeButton.hidden = false;
+  syncThemeButton();
+  themeButton.addEventListener('click', () => {
+    const theme = isDark() ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('portfolio-theme', theme); } catch (error) { /* Storage is optional. */ }
+    syncThemeButton();
+  });
+  systemTheme.addEventListener('change', syncThemeButton);
+}
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 menu?.addEventListener('click', () => {

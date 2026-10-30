@@ -27,20 +27,30 @@ def tags(values):
 def shell(title, description, body, path='index.html'):
     prefix = '../' if path.startswith('projects/') else ''
     home = prefix + 'index.html'
+    active = 'projects.html' if path.startswith('projects/') or path == 'research.html' else path
+    navigation = ''.join(
+        f'<a href="{prefix}{url}"' + (' aria-current="page"' if active == url else '') + f'>{label}</a>'
+        for url, label in [('index.html', 'about'), ('publications.html', 'publications'),
+                           ('projects.html', 'projects'), ('cv.html', 'cv'), ('teaching.html', 'teaching')]
+    )
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title><meta name="description" content="{E(description)}"><meta name="author" content="Amir Hassanzadeh">
 <link rel="canonical" href="{SITE}/{path if path != 'index.html' else ''}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website">
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=7"><script src="{prefix}assets/site/main.js?v=3" defer></script></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>try{{const t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=8"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
-<a class="brand" href="{home}">Amir Hassanzadeh<span aria-hidden="true">.</span></a>
+<a class="brand" href="{home}"><strong>Amir</strong> Hassanzadeh</a>
+<div class="nav-actions"><button class="theme-toggle" type="button" aria-label="Switch to dark theme" hidden><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16Z" fill="currentColor" stroke="none"/></svg></button>
 <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu</button>
-<div class="nav-links" id="navigation"><a href="{home}#research">Projects</a><a href="{home}#publications">Publications</a><a href="{home}#about">About</a><a href="{home}#contact">Contact</a><a class="nav-resume" href="{prefix}assets/docs/AmirHassanzadeh_CV.pdf">CV ↗</a></div>
+</div><div class="nav-links" id="navigation">{navigation}</div>
 </nav></header>
 <main id="main">{body}</main>
-<footer class="footer"><div class="wrap footer-inner"><span>© 2026 Amir Hassanzadeh</span><span>Remote sensing · Machine learning · Simulation</span><a href="#main">Back to top ↑</a></div></footer></body></html>'''
+<footer class="footer"><div class="wrap footer-inner"><span>© 2026 Amir Hassanzadeh. Inspired by <a href="https://alshedivat.github.io/al-folio/">al-folio</a>. Hosted on GitHub Pages.</span><a href="#main">Back to top ↑</a></div></footer></body></html>'''
 
 def card(p, index):
     image_class = 'photo' if p['slug'] == 'lidar' else 'logo' if p['slug'] == 'jostar' else ''
@@ -66,37 +76,51 @@ PUBLICATIONS = [
     ('2020','Yield modeling of snap bean based on hyperspectral sensing: a greenhouse study','Journal of Applied Remote Sensing · 14(2), 024519','https://doi.org/10.1117/1.JRS.14.024519'),
 ]
 
-def publications():
+def publications(selected=False):
     out = ''
-    for year, title, venue, url in PUBLICATIONS:
-        heading = anchor(url, title + ' ↗') if url else E(title)
-        out += f'<li><span class="pub-year">{year}</span><div><h3 class="pub-title">{heading}</h3><p class="pub-venue">{E(venue)}</p></div></li>'
+    project_links = {0: 'lidar', 1: 'landsat', 7: 'phd', 9: 'phd', 10: 'phd', 11: 'phd'}
+    for i, (year, title, venue, url) in enumerate(PUBLICATIONS[:3] if selected else PUBLICATIONS):
+        heading = anchor(url, title) if url else E(title)
+        actions = anchor(url, 'Paper', 'pub-button') if url else ''
+        if i in project_links:
+            actions += anchor(f'projects/{project_links[i]}.html', 'Project', 'pub-button')
+        out += f'<li><span class="pub-year">{year}</span><div><h3 class="pub-title">{heading}</h3><p class="pub-venue">{E(venue)}</p><div class="pub-actions">{actions}</div></div></li>'
     return out
 
 home_body = f'''
-<section class="wrap hero" aria-labelledby="intro-title">
-<div><p class="eyebrow">Earth observation & applied AI</p><h1 id="intro-title">Amir<br>Hassanzadeh<span style="color:var(--accent)">.</span></h1>
-<p class="lead">Understanding our world through remote sensing, machine learning, and physical simulation.</p>
-<p class="affiliation">Research Assistant Professor<br>Rochester Institute of Technology</p>
-</div>
+<div class="wrap academic-home">
+<section id="about" class="profile" aria-labelledby="intro-title">
+<header class="profile-heading"><h1 id="intro-title"><strong>Amir</strong> Hassanzadeh</h1>
+<p class="affiliation">Research Assistant Professor · <a href="https://www.rit.edu/">Rochester Institute of Technology</a></p></header>
+<aside class="profile-photo"><img src="assets/site/headshot.jpeg" alt="Amir Hassanzadeh" width="280" height="310" fetchpriority="high"><p>Remote sensing<br>Machine learning<br>Physics-based simulation</p></aside>
+<div class="biography"><p>I am a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of <strong>remote sensing, machine learning, and physics-based simulation</strong>. I develop methods and software for extracting meaningful information from satellite, UAV, hyperspectral, thermal, and LiDAR observations.</p>
+<p>My current research spans <a href="projects/sst.html">self-supervised hyperspectral representation learning</a>, <a href="projects/landsat.html">Landsat surface-temperature retrieval and uncertainty</a>, and <a href="projects/scene-constructor.html">large-scale DIRSIG scene construction</a>.</p>
+<p>I earned my Ph.D. in Imaging Science at RIT in 2022. My doctoral work connected greenhouse spectroscopy with field-scale UAV observations for <a href="projects/phd.html">crop-yield prediction and harvest-maturity assessment</a>.</p>
+<p>I teach <a href="teaching.html">Applications of Machine Learning in Remote Sensing</a> and advise graduate and undergraduate researchers.</p></div>
 </section>
-<section id="research" class="section"><div class="wrap">
-<div class="section-heading"><div><p class="eyebrow">Research & software</p><h2>Selected projects</h2></div><p>From learning representations of Earth to simulating the sensors that observe it.</p></div>
-<div class="project-grid">{''.join(card(p,i+1) for i,p in enumerate(HOME_PROJECTS))}</div>
-<div class="links"><a class="button" href="research.html">Earlier research & posters ↗</a></div>
-</div></section>
-<section id="publications" class="section pub-section"><div class="wrap">
-<div class="section-heading"><div><p class="eyebrow">Papers & collaboration</p><h2>Publications</h2></div>{anchor(SCHOLAR,'Google Scholar ↗','text-link')}</div>
-<ol class="pub-list">{publications()}</ol></div></section>
-<section id="about" class="section"><div class="wrap about-grid">
-<div><p class="eyebrow">About</p><h2 style="margin-top:.8rem">Research meets<br>implementation.</h2><img class="portrait" src="assets/site/headshot.jpeg" alt="Amir Hassanzadeh" width="180" height="180" loading="lazy"><a class="text-link" href="assets/docs/AmirHassanzadeh_CV.pdf">Download CV ↗</a></div>
-<div class="about-copy"><p>Amir Hassanzadeh is a Research Assistant Professor at Rochester Institute of Technology, working at the intersection of remote sensing, machine learning, and physics-based simulation. His work develops methods and software for extracting meaningful information from satellite, UAV, hyperspectral, thermal, and LiDAR observations.</p>
-<p>His research spans self-supervised geospatial foundation models, Landsat surface-temperature retrieval and uncertainty, large-scale DIRSIG scene construction, and agricultural monitoring. His early research translated insights from controlled greenhouse spectroscopy to field-scale UAV remote sensing for crop-yield and harvest-maturity assessment.</p>
-<p>He teaches <em>Applications of Machine Learning in Remote Sensing</em> and advises graduate and undergraduate researchers.</p>
-<ul class="background-list"><li><strong>Research Assistant Professor · RIT</strong><span>April 2026–Present</span></li><li><strong>Researcher / Engineer II · RIT</strong><span>June 2022–April 2026</span></li><li><strong>Ph.D. in Imaging Science · RIT</strong><span>2022</span></li></ul>
-</div></div></section>
-<section id="contact" class="contact"><div class="wrap contact-inner"><div><h2>Get in touch</h2><p>Research, collaboration, and opportunities.</p></div><div><a href="mailto:{EMAIL}">{EMAIL}</a><div class="links">{anchor('https://github.com/amirhszd','GitHub ↗','text-link')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn ↗','text-link')}{anchor(SCHOLAR,'Scholar ↗','text-link')}</div></div></div></section>'''
+<section id="contact" class="academic-contact" aria-label="Contact and professional profiles"><div class="social-links">{anchor('mailto:'+EMAIL,'Email')}{anchor(SCHOLAR,'Google Scholar')}{anchor('https://github.com/amirhszd','GitHub')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn')}{anchor('assets/docs/AmirHassanzadeh_CV.pdf','CV ↓')}</div><p>Research, collaboration, and opportunities: <a href="mailto:{EMAIL}">{EMAIL}</a></p></section>
+<section id="publications" class="academic-section"><div class="section-heading"><h2>selected publications</h2><a href="publications.html" class="text-link">all publications →</a></div><ol class="pub-list">{publications(selected=True)}</ol></section>
+<section id="research" class="academic-section"><div class="section-heading"><h2>selected projects</h2><a href="projects.html" class="text-link">all projects →</a></div><div class="project-grid featured-grid">{''.join(card(p,i+1) for i,p in enumerate(HOME_PROJECTS[:3]))}</div></section>
+</div>'''
 (ROOT / 'index.html').write_text(shell('Amir Hassanzadeh | Remote Sensing & Machine Learning', 'Research Assistant Professor at RIT. Remote sensing, foundation models, Landsat surface temperature, DIRSIG simulation, LiDAR, and open-source software.', home_body))
+
+def academic_page(path, title, description, contents):
+    body = f'<div class="wrap academic-page"><header class="page-heading"><h1>{title}</h1><p>{description}</p></header>{contents}</div>'
+    (ROOT / path).write_text(shell(title.title() + ' | Amir Hassanzadeh', description, body, path))
+
+academic_page('publications.html', 'publications', 'Papers, preprints, and doctoral research in remote sensing and machine learning.',
+    f'<p class="page-link">{anchor(SCHOLAR, "View my Google Scholar profile →")}</p><ol class="pub-list full-publications">{publications()}</ol>')
+academic_page('projects.html', 'projects', 'Research and software, from learning representations of Earth to simulating the sensors that observe it.',
+    '<div class="project-grid">' + ''.join(card(p, i+1) for i,p in enumerate(HOME_PROJECTS)) + '</div><p class="archive-link"><a href="research.html">Earlier research & posters →</a></p>')
+academic_page('cv.html', 'curriculum vitae', 'Research, software development, and teaching in imaging science.', '''
+<p class="page-link"><a class="button" href="assets/docs/AmirHassanzadeh_CV.pdf">Download full CV (PDF) ↓</a></p>
+<section class="cv-section"><h2>experience</h2><dl class="timeline"><div><dt>April 2026–Present</dt><dd><h3>Research Assistant Professor</h3><p>Rochester Institute of Technology</p></dd></div><div><dt>June 2022–April 2026</dt><dd><h3>Researcher / Engineer II</h3><p>Rochester Institute of Technology</p></dd></div></dl></section>
+<section class="cv-section"><h2>education</h2><dl class="timeline"><div><dt>2022</dt><dd><h3>Ph.D. in Imaging Science</h3><p>Rochester Institute of Technology</p><p>On the Use of Imaging Spectroscopy from Unmanned Aerial Systems (UAS) to Model Yield and Assess Growth Stages of a Broadacre Crop</p></dd></div></dl></section>
+<section class="cv-section"><h2>research interests</h2><p>Self-supervised representation learning · Hyperspectral imaging · Thermal remote sensing · LiDAR · Physics-based simulation · Agricultural monitoring</p></section>
+<p class="page-link"><a href="publications.html">Publications →</a> &nbsp; <a href="teaching.html">Teaching →</a></p>''')
+academic_page('teaching.html', 'teaching', 'Machine learning for Earth observation and research mentoring.', '''
+<section class="teaching-section"><h2>Applications of Machine Learning in Remote Sensing</h2><p class="course-affiliation">Rochester Institute of Technology</p><p>I teach Applications of Machine Learning in Remote Sensing, connecting my work in imaging science and machine learning with the analysis of remotely sensed observations.</p></section>
+<section class="teaching-section"><h2>research advising</h2><p>I advise graduate and undergraduate researchers. My research spans hyperspectral representation learning, thermal remote sensing, LiDAR, physics-based simulation, and agricultural monitoring.</p><p>For research and collaboration inquiries, <a href="mailto:amirxhassanzadeh@gmail.com">get in touch</a>.</p></section>''')
 
 def figure(p, f, number):
     base = f"../assets/projects/{p['slug']}/"
@@ -182,12 +206,12 @@ for i,p in enumerate(PROJECTS):
     links = ''.join(anchor(x['url'],x['label']+' ↗','button') for x in p['links'])
     note = f'<p class="publication-note">{E(p["publication_note"])}</p>' if p.get('publication_note') else ''
     next_p = PROJECTS[(i+1)%len(PROJECTS)]
-    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../index.html#research">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
+    body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="../projects.html">← All projects</a><p class="eyebrow">{E(p['category'])}</p>{project_heading(p)}<div class="detail-meta">{meta}</div><div class="links">{links}</div>{note}</header>
 <div class="detail-overview"><section><h2>Overview</h2><p class="overview-text">{E(p['overview'])}</p></section><aside class="role"><h2>Contribution</h2><ul>{''.join('<li>'+E(x)+'</li>' for x in p['role'])}</ul>{tags(p['tags'])}</aside></div>
 {interactive_demo(p)}
 {gallery(p)}
 {news(p)}
-<div class="next-project"><a class="text-link" href="../index.html#research">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''
+<div class="next-project"><a class="text-link" href="../projects.html">← All projects</a><div><p class="eyebrow">Next project</p><h3><a href="{next_p['slug']}.html">{E(next_p['title'])} ↗</a></h3></div></div></div>'''
     path=f"projects/{p['slug']}.html"
     (ROOT/path).write_text(shell(p['full_title']+' | Amir Hassanzadeh',p['summary'],body,path))
 
@@ -196,14 +220,14 @@ for p in EARLIER:
     entries+=f'''<article class="earlier-entry"><h2>{E(p['title'])}</h2><p class="authors">{E(p['authors'])}</p>{anchor(p['url'],'Read paper / poster ↗','button')}<div class="earlier-content"><a href="{p['image']}"><img src="{p['image']}" alt="{E(p['title'])}" loading="lazy"></a><p>{E(p['text'])}</p></div></article>'''
 body=f'''<div class="wrap"><header class="detail-header"><a class="back" href="index.html#research">← All projects</a><p class="eyebrow">Research archive</p><h1>Earlier research & posters</h1><p class="summary">Greenhouse and field studies in imaging spectroscopy, crop phenotyping, and yield estimation.</p></header>{entries}</div>'''
 (ROOT/'research.html').write_text(shell('Earlier Research | Amir Hassanzadeh','Earlier research, figures, and posters on crop yield, harvest scheduling, hyperspectral sensing, and LiDAR.',body,'research.html'))
-print(f'Built homepage, {len(PROJECTS)} project pages, and earlier research page.')
+print(f'Built homepage, 4 academic pages, {len(PROJECTS)} project pages, and earlier research page.')
 
 # Optional static output for the private review deployment. GitHub Pages serves the root.
 out = ROOT / 'out'
 if out.exists():
     shutil.rmtree(out)
 out.mkdir()
-for name in ['index.html', 'research.html', '.nojekyll']:
+for name in ['index.html', 'publications.html', 'projects.html', 'cv.html', 'teaching.html', 'research.html', '.nojekyll']:
     shutil.copy2(ROOT/name, out/name)
 for name in ['projects', 'assets', 'images']:
     shutil.copytree(ROOT/name, out/name)
