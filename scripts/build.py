@@ -41,7 +41,7 @@ def shell(title, description, body, path='index.html'):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script>try{{const t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=10"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=11"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}"><strong>Amir</strong> Hassanzadeh</a>
