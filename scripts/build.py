@@ -41,7 +41,7 @@ def shell(title, description, body, path='index.html'):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script>try{{const t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="{prefix}assets/site/style.css?v=8"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
+<link rel="stylesheet" href="{prefix}assets/site/style.css?v=9"><script src="{prefix}assets/site/main.js?v=4" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
 <a class="brand" href="{home}"><strong>Amir</strong> Hassanzadeh</a>
@@ -99,8 +99,8 @@ home_body = f'''
 <p>I teach <a href="teaching.html">Applications of Machine Learning in Remote Sensing</a> and advise graduate and undergraduate researchers.</p></div>
 </section>
 <section id="contact" class="academic-contact" aria-label="Contact and professional profiles"><div class="social-links">{anchor('mailto:'+EMAIL,'Email')}{anchor(SCHOLAR,'Google Scholar')}{anchor('https://github.com/amirhszd','GitHub')}{anchor('https://www.linkedin.com/in/amirhassanzadeh/','LinkedIn')}{anchor('assets/docs/AmirHassanzadeh_CV.pdf','CV ↓')}</div><p>Research, collaboration, and opportunities: <a href="mailto:{EMAIL}">{EMAIL}</a></p></section>
-<section id="publications" class="academic-section"><div class="section-heading"><h2>selected publications</h2><a href="publications.html" class="text-link">all publications →</a></div><ol class="pub-list">{publications(selected=True)}</ol></section>
 <section id="research" class="academic-section"><div class="section-heading"><h2>selected projects</h2><a href="projects.html" class="text-link">all projects →</a></div><div class="project-grid featured-grid">{''.join(card(p,i+1) for i,p in enumerate(HOME_PROJECTS[:3]))}</div></section>
+<section id="publications" class="academic-section"><div class="section-heading"><h2>selected publications</h2><a href="publications.html" class="text-link">all publications →</a></div><ol class="pub-list">{publications(selected=True)}</ol></section>
 </div>'''
 (ROOT / 'index.html').write_text(shell('Amir Hassanzadeh | Remote Sensing & Machine Learning', 'Research Assistant Professor at RIT. Remote sensing, foundation models, Landsat surface temperature, DIRSIG simulation, LiDAR, and open-source software.', home_body))
 
